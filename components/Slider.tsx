@@ -18,9 +18,9 @@ const PROJECTS: Project[] = [
     { id: 6, image: '/projects/hamClub.png', title: '' },
 ];
 
-const IMAGE_GAP = 80;
+const IMAGE_GAP = 30;
 const SCROLL_SPEED = 0.75; 
-const IMAGE_WIDTH = 175;
+const IMAGE_WIDTH = 200;
 
 export default function Slider() {
     const sliderRef = useRef<HTMLDivElement>(null);
@@ -88,7 +88,7 @@ export default function Slider() {
     }, [position]);
 
     return (
-        <div className="min-h-screen bg-[#f5f5f5] flex flex-col overflow-hidden select-none">
+        <div className="flex flex-col overflow-hidden select-none">
             <div className="flex-1 flex items-center justify-center overflow-hidden">
                 <div
                     ref={sliderRef}
@@ -104,7 +104,7 @@ export default function Slider() {
                 >
                     <div
                         ref={trackRef}
-                        className="flex will-change-transform"
+                        className="flex"
                         style={{
                             gap: `${IMAGE_GAP}px`,
                         }}
@@ -112,14 +112,14 @@ export default function Slider() {
                         {multipliedProjects.map((project, index) => (
                             <div
                                 key={`${project.id}-${index}`}
-                                className="shrink-0 transform-3d pointer-events-none"
+                                className="shrink-0 pointer-events-none transform-3d perspective-[1400px] perspective-origin-right"
                             >
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     width={IMAGE_WIDTH}
                                     height={IMAGE_WIDTH}
-                                    className="overflow-hidden h-auto skew-y-20"
+                                    className="overflow-hidden h-auto skew-y-12 -rotate-y-44 -rotate-x-6"
                                     draggable={false}
                                 />
                             </div>
