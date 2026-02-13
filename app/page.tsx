@@ -1,65 +1,114 @@
 import Image from "next/image";
 
 export default function Home() {
+  const projects = [
+    {
+      url: "stratoSoarMK3.png",
+      name: "StratoSoar MK3",
+      date: "2024",
+      link: "https://github.com/crnicholson/StratoSoar-MK3",
+      description:
+        "StratoSoar is an autonomous glider designed for high-altitude research. Released from a weather balloon, it navigates itself to preset GPS coordinates, offering a cost-effective way for educators, hobbyists, and researchers to conduct aerial experiments.",
+    },
+    {
+      url: "carbon.jpeg",
+      name: "Carbon Capture",
+      date: "2023",
+      link: "https://github.com/crnicholson/Carbon-Capture",
+      description:
+        "This is a DIY carbon capture machine that removes CO2 from the atmosphere, along with a complete guide on how to make your own and a paper behind it.",
+    },
+    {
+      url: "hamClub.png",
+      name: "Ham Club",
+      date: "2022",
+      link: "https://ham.hackclub.com/",
+      description:
+        "This was a project with Hack Club that gave youth ham radios if they got licensed. I was the co-founder and I led web design along with the curriculum, planning and organization.",
+    },
+    {
+      url: "apex.png",
+      name: "Apex",
+      date: "2025",
+      link: "https://github.com/hackclub/apex",
+      description:
+        "Apex is a multi-month, near-space hackathon, where teenagers around the world collaborate to design and build projects for a high-altitude balloon. I am the lead organizer and helped with publicity, planning, organization, and finances.",
+    },
+    {
+      url: "bioplastic.avif",
+      name: "Bioplastic",
+      date: "2023",
+      link: "https://nicholsonlabs.gitbook.io/labs/bioplastic",
+      description:
+        "I made my own seaweed-based bioplastic from scratch. While it may have not been a huge success, I did make a strong, translucent plastic film which will be sused in future projects.",
+    },
+    {
+      url: "stratoSoarMK2.png",
+      name: "StratoSoar MK2",
+      date: "2024",
+      link: "https://www.github.com/crnicholson/StratoSoar-MK2",
+      description:
+        "StratoSoar is a high-altitude Unmanned Autonomous Vehicle (UAV), capable of flying to selected coordinates. I successfully launched from 5,000 feet in the summer of 2024, and the latest work has been completed on MK3.",
+    },
+    {
+      url: "littleLoRa.png",
+      name: "LitteLoRa",
+      date: "2024",
+      link: "https://github.com/crnicholson/LittleLoRa",
+      description:
+        "LittleLoRa is GPS tracker intended to track gliders or high altitude balloons from long distances using minimal power. LittleLoRa is the companion project of StratoSoar and is very much a WIP.",
+    },
+    {
+      url: "stratoSoarMK1.jpeg",
+      name: "StratoSoar MK1",
+      date: "2022",
+      link: "https://github.com/crnicholson/StratoSoar-MK1",
+      description:
+        "This was my first attempt of making a high-altitude UAV. It was a great learning experience and I learned a lot about the process of making a UAV, although it was not successful.",
+    },
+    {
+      url: "beantown.jpeg",
+      name: "OpenCV Resistor Finder",
+      date: "2023",
+      link: "https://github.com/maxsrobotics/resistorfinder",
+      description:
+        "This was an OpenCV resistor value finder that used algorithims to find the value of the resistor being held up to the webcam. Won first place at the Beantown Bash Hackathon!",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      <div className="p-10 min-h-screen flex justify-center items-center w-full">
+        <div className="w-fit h-fit grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+          {projects.map((project) => (
+            <a
+              href={project.link}
+              key={project.name}
+              className="w-full h-fit flex justify-center items-center z-10"
+            >
+              <Image
+                src={"/projects/" + project.url}
+                alt={project.name}
+                width={80}
+                height={80}
+                className=""
+              />
+              {/* <h1 className="text-xl font-bold">{project.name}</h1>
+            <p className="text-sm text-gray-500">{project.date}</p>
+            <p className="mt-2 text-gray-700">{project.description}</p> */}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src={"/charlie.gif"}
+          alt={""}
+          width={2000}
+          height={2000}
+          className="z-0"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+      </div>
+    </>
+  )
 }
