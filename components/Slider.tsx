@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, MouseEvent } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
 interface Project {
@@ -11,93 +11,120 @@ interface Project {
 
 const PROJECTS: Project[] = [
     { id: 1, image: '/projects/bioplastic.avif', title: '' },
-    { id: 2, image: '/projects/bioplastic.avif', title: '' },
-    { id: 3, image: '/projects/bioplastic.avif', title: '' },
-    { id: 4, image: '/projects/bioplastic.avif', title: '' },
-    { id: 5, image: '/projects/bioplastic.avif', title: '' },
-    { id: 6, image: '/projects/bioplastic.avif', title: '' },
+    { id: 2, image: '/projects/apex.png', title: '' },
+    { id: 3, image: '/projects/beantown.jpeg', title: '' },
+    { id: 4, image: '/projects/carbon.jpeg', title: '' },
+    { id: 5, image: '/projects/stratosoarMK2.png', title: '' },
+    { id: 6, image: '/projects/hamClub.png', title: '' },
 ];
 
-const DRAG_MULTIPLIER = 2;
-const SCROLL_SECTIONS = 3;
+const IMAGE_GAP = 80;
+const SCROLL_SPEED = 0.75; 
+const IMAGE_WIDTH = 175;
 
 export default function Slider() {
-    const containerRef = useRef<HTMLDivElement>(null);
+    const sliderRef = useRef<HTMLDivElement>(null);
+    const trackRef = useRef<HTMLDivElement>(null);
+    const [position, setPosition] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+    const [dragStart, setDragStart] = useState({ x: 0, scrollPos: 0 });
+    const animationRef = useRef<number>(null);
 
-    const infiniteProjects = [...PROJECTS, ...PROJECTS, ...PROJECTS];
+    const multipliedProjects = Array(20).fill(PROJECTS).flat();
 
     useEffect(() => {
-        if (containerRef.current) {
-            containerRef.current.scrollLeft = containerRef.current.scrollWidth / SCROLL_SECTIONS;
-        }
+        const handleWheel = (e: WheelEvent) => {
+            e.preventDefault();
+            setPosition((prev) => prev + e.deltaY * SCROLL_SPEED);
+        };
+
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        return () => window.removeEventListener('wheel', handleWheel);
     }, []);
 
-    const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+    const handleMouseDown = (e: React.MouseEvent) => {
         setIsDragging(true);
-        setStartX(e.pageX - (containerRef.current?.offsetLeft ?? 0));
-        setScrollLeft(containerRef.current?.scrollLeft ?? 0);
+        setDragStart({ x: e.clientX, scrollPos: position });
+        if (sliderRef.current) {
+            sliderRef.current.style.cursor = 'grabbing';
+        }
+    };
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if (!isDragging) return;
+        const delta = e.clientX - dragStart.x;
+        setPosition(dragStart.scrollPos - delta * 2);
     };
 
     const handleMouseUp = () => {
         setIsDragging(false);
-    };
-
-    const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-        if (!isDragging || !containerRef.current) return;
-        e.preventDefault();
-        const x = e.pageX - containerRef.current.offsetLeft;
-        const walk = (x - startX) * DRAG_MULTIPLIER;
-        containerRef.current.scrollLeft = scrollLeft - walk;
-    };
-
-    const handleScroll = () => {
-        if (!containerRef.current) return;
-
-        const container = containerRef.current;
-        const scrollWidth = container.scrollWidth;
-        const scrollPosition = container.scrollLeft;
-        const sectionWidth = scrollWidth / SCROLL_SECTIONS;
-
-        if (scrollPosition <= 0) {
-            container.scrollLeft = sectionWidth;
-        } else if (scrollPosition >= sectionWidth * 2) {
-            container.scrollLeft = sectionWidth;
+        if (sliderRef.current) {
+            sliderRef.current.style.cursor = 'grab';
         }
     };
+
+    useEffect(() => {
+        const animate = () => {
+            if (!trackRef.current) return;
+
+            const singleSetWidth = PROJECTS.length * (IMAGE_WIDTH + IMAGE_GAP);
+
+            // Reset position when we've scrolled one full set
+            let normalizedPosition = position % singleSetWidth;
+            if (normalizedPosition < 0) {
+                normalizedPosition += singleSetWidth;
+            }
+
+            trackRef.current.style.transform = `translateX(-${normalizedPosition}px)`;
+            animationRef.current = requestAnimationFrame(animate);
+        };
+
+        animationRef.current = requestAnimationFrame(animate);
+        return () => {
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current);
+            }
+        };
+    }, [position]);
 
     return (
         <div className="min-h-screen bg-[#f5f5f5] flex flex-col overflow-hidden select-none">
             <div className="flex-1 flex items-center justify-center overflow-hidden">
                 <div
-                    ref={containerRef}
+                    ref={sliderRef}
                     onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
-                    onMouseMove={handleMouseMove}
-                    onScroll={handleScroll}
-                    className="flex gap-6 overflow-x-auto px-12 py-16 cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:hidden "
+                    className="w-full overflow-hidden cursor-grab py-16"
                     style={{
                         perspective: '2000px',
                         perspectiveOrigin: 'center center',
                     }}
                 >
-                    {infiniteProjects.map((project, index) => (
-                        <div
-                            key={`${project.id}-${index}`}
-                            className="shrink-0 transform-3d"
-                        >
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                width={200}
-                                height={200}
-                                className="overflow-hidden object-cover skew-y-30"
-                            />
-                        </div>
-                    ))}
+                    <div
+                        ref={trackRef}
+                        className="flex will-change-transform"
+                        style={{
+                            gap: `${IMAGE_GAP}px`,
+                        }}
+                    >
+                        {multipliedProjects.map((project, index) => (
+                            <div
+                                key={`${project.id}-${index}`}
+                                className="shrink-0 transform-3d pointer-events-none"
+                            >
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    width={IMAGE_WIDTH}
+                                    height={IMAGE_WIDTH}
+                                    className="overflow-hidden h-auto skew-y-20"
+                                    draggable={false}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
