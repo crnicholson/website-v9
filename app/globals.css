@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+    --font-new-edge: var(--font-new-edge);
+}
