@@ -19,18 +19,32 @@ const PROJECTS: Project[] = [
 ];
 
 const IMAGE_GAP = 0;
-const SCROLL_SPEED = 0.75; 
+const SCROLL_SPEED = 0.75;
 const IMAGE_WIDTH = 180;
+const BACKGROUND_SCROLL_SPEED = -0.5;
 
 export default function Slider() {
     const sliderRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
+    const backgroundRef = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, scrollPos: 0 });
     const animationRef = useRef<number>(null);
+    const [backgroundImageWidth, setBackgroundImageWidth] = useState(1000);
 
     const multipliedProjects = Array(20).fill(PROJECTS).flat();
+
+    useEffect(() => {
+        const img = new window.Image();
+        img.src = '/charlie.png';
+        img.onload = () => {
+            const aspectRatio = img.width / img.height;
+            const screenHeight = window.innerHeight;
+            const scaledWidth = screenHeight * aspectRatio;
+            setBackgroundImageWidth(scaledWidth);
+        };
+    }, []);
 
     useEffect(() => {
         const handleWheel = (e: WheelEvent) => {
@@ -69,13 +83,23 @@ export default function Slider() {
 
             const singleSetWidth = PROJECTS.length * (IMAGE_WIDTH + IMAGE_GAP);
 
-            // Reset position when we've scrolled one full set
             let normalizedPosition = position % singleSetWidth;
             if (normalizedPosition < 0) {
                 normalizedPosition += singleSetWidth;
             }
 
             trackRef.current.style.transform = `translateX(-${normalizedPosition}px)`;
+
+            if (backgroundRef.current && backgroundImageWidth > 0) {
+                const backgroundPosition = position * BACKGROUND_SCROLL_SPEED;
+                let normalizedBgPosition = backgroundPosition % backgroundImageWidth;
+                if (normalizedBgPosition > 0) {
+                    normalizedBgPosition -= backgroundImageWidth;
+                }
+
+                backgroundRef.current.style.transform = `translateX(${normalizedBgPosition}px)`;
+            }
+
             animationRef.current = requestAnimationFrame(animate);
         };
 
@@ -85,11 +109,38 @@ export default function Slider() {
                 cancelAnimationFrame(animationRef.current);
             }
         };
-    }, [position]);
+    }, [position, backgroundImageWidth]);
 
     return (
-        <div className="flex flex-col overflow-hidden select-none">
-            <div className="flex-1 flex items-center justify-center overflow-hidden">
+        <div className="flex flex-col overflow-hidden select-none relative h-screen">
+            <div className="absolute inset-0 overflow-hidden h-full w-full">
+                <div
+                    ref={backgroundRef}
+                    className="absolute flex h-full transform top-0 left-0"
+                >
+                    {Array(30).fill(null).map((_, i) => (
+                        <div
+                            key={i}
+                            className="relative shrink-0"
+                            style={{
+                                height: '100vh',
+                                width: `${backgroundImageWidth}px`,
+                            }}
+                        >
+                            {/* <Image
+                                src="/charlie.png"
+                                alt="Background"
+                                fill
+                                className="object-cover"
+                                sizes="100vw"
+                            /> */}
+                            <h1 className="text-[100vh] opacity-2.5 text-shadow-none">charlie</h1>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="flex-1 flex items-center justify-center overflow-hidden relative z-10">
                 <div
                     ref={sliderRef}
                     onMouseDown={handleMouseDown}
