@@ -18,7 +18,7 @@ const PROJECTS: Project[] = [
     { id: 6, image: '/projects/hamClub.png', title: '' },
 ];
 
-const IMAGE_GAP = 40;
+const IMAGE_GAP = 0;
 const SCROLL_SPEED = 0.75; 
 const IMAGE_WIDTH = 180;
 
@@ -112,9 +112,10 @@ export default function Slider() {
                         {multipliedProjects.map((project, index) => (
                             <div
                                 key={`${project.id}-${index}`}
-                                className="shrink-0 pointer-events-none transform-3d perspective-[1400px] perspective-origin-right skew-y-12 -rotate-y-44 -rotate-x-6 h-fit"
+                                className="shrink-0 pointer-events-none h-fit opacity-100"
+                                style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
                             >
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/50 z-10 pointer-events-none mt-20"></div>
+                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/50 z-10 pointer-events-none"></div>
 
                                 <Image
                                     src={project.image}
