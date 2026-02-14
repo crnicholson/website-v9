@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import CustomCursor from "@/components/CustomCursor";
+
 const newEdge = localFont({
   src: '../public/fonts/New-Edge-Light-Rounded.woff',
   variable: '--font-new-edge',
@@ -26,6 +28,7 @@ export default function RootLayout({
         style={{ textShadow: "1px 0 #f3ff00, 0px -1px #f3ff00, -1px 0 #f3ff00, 0 1px #f3ff00" }}
       >
         {children}
+        <CustomCursor />
       </body>
     </html>
   );
