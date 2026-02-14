@@ -18,9 +18,9 @@ const PROJECTS: Project[] = [
     { id: 6, image: '/projects/hamClub.png', title: '' },
 ];
 
-const IMAGE_GAP = 30;
+const IMAGE_GAP = 40;
 const SCROLL_SPEED = 0.75; 
-const IMAGE_WIDTH = 200;
+const IMAGE_WIDTH = 180;
 
 export default function Slider() {
     const sliderRef = useRef<HTMLDivElement>(null);
@@ -112,14 +112,16 @@ export default function Slider() {
                         {multipliedProjects.map((project, index) => (
                             <div
                                 key={`${project.id}-${index}`}
-                                className="shrink-0 pointer-events-none transform-3d perspective-[1400px] perspective-origin-right"
+                                className="shrink-0 pointer-events-none transform-3d perspective-[1400px] perspective-origin-right skew-y-12 -rotate-y-44 -rotate-x-6 h-fit"
                             >
+                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/50 z-10 pointer-events-none mt-20"></div>
+
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     width={IMAGE_WIDTH}
                                     height={IMAGE_WIDTH}
-                                    className="overflow-hidden h-auto skew-y-12 -rotate-y-44 -rotate-x-6"
+                                    className="overflow-hidden h-auto"
                                     draggable={false}
                                 />
                             </div>
