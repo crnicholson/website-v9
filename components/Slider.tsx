@@ -18,7 +18,7 @@ const PROJECTS: Project[] = [
     { id: 6, image: '/projects/hamClub.png', title: '' },
 ];
 
-const IMAGE_GAP = 0;
+const IMAGE_GAP = 60;
 const SCROLL_SPEED = 0.75;
 const IMAGE_WIDTH = 180;
 const BACKGROUND_SCROLL_SPEED = -0.5;
@@ -134,7 +134,7 @@ export default function Slider() {
                                 className="object-cover"
                                 sizes="100vw"
                             /> */}
-                            <h1 className="text-[100vh] opacity-2.5 text-shadow-none">charlie</h1>
+                            <h1 className="text-[100vh] opacity-5 text-shadow-none">charlie</h1>
                         </div>
                     ))}
                 </div>
@@ -163,10 +163,11 @@ export default function Slider() {
                         {multipliedProjects.map((project, index) => (
                             <div
                                 key={`${project.id}-${index}`}
-                                className="shrink-0 pointer-events-none h-fit opacity-100"
-                                style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
+                                className="shrink-0 pointer-events-none h-fit opacity-80"
+                                // style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
+                                style={{ willChange: "transform" }}
                             >
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/50 z-10 pointer-events-none"></div>
+                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/0 z-10 pointer-events-none"></div>
 
                                 <Image
                                     src={project.image}
