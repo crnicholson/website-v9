@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${newEdge.variable} antialiased font-new-edge`}
+        className={`${newEdge.variable} antialiased font-new-edge cursor-none`}
         style={{ textShadow: "1px 0 #f3ff00, 0px -1px #f3ff00, -1px 0 #f3ff00, 0 1px #f3ff00" }}
       >
         {children}

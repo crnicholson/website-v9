@@ -21,12 +21,14 @@ const PROJECTS: Project[] = [
 const IMAGE_GAP = 60;
 const SCROLL_SPEED = 0.75;
 const IMAGE_WIDTH = 180;
-const BACKGROUND_SCROLL_SPEED = -0.5;
+const BACKGROUND_SVG_SCROLL_SPEED = -0.5;
+const BACKGROUND_TEXT_SCROLL_SPEED = -0.3;
 
 export default function Slider() {
     const sliderRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
-    const backgroundRef = useRef<HTMLDivElement>(null);
+    const backgroundSvgRef = useRef<HTMLDivElement>(null);
+    const backgroundTextRef = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, scrollPos: 0 });
@@ -59,9 +61,6 @@ export default function Slider() {
     const handleMouseDown = (e: React.MouseEvent) => {
         setIsDragging(true);
         setDragStart({ x: e.clientX, scrollPos: position });
-        if (sliderRef.current) {
-            sliderRef.current.style.cursor = 'grabbing';
-        }
     };
 
     const handleMouseMove = (e: React.MouseEvent) => {
@@ -72,9 +71,6 @@ export default function Slider() {
 
     const handleMouseUp = () => {
         setIsDragging(false);
-        if (sliderRef.current) {
-            sliderRef.current.style.cursor = 'grab';
-        }
     };
 
     useEffect(() => {
@@ -90,14 +86,22 @@ export default function Slider() {
 
             trackRef.current.style.transform = `translateX(-${normalizedPosition}px)`;
 
-            if (backgroundRef.current && backgroundImageWidth > 0) {
-                const backgroundPosition = position * BACKGROUND_SCROLL_SPEED;
+            if (backgroundSvgRef.current && backgroundImageWidth > 0) {
+                const backgroundPosition = position * BACKGROUND_SVG_SCROLL_SPEED;
                 let normalizedBgPosition = backgroundPosition % backgroundImageWidth;
                 if (normalizedBgPosition > 0) {
                     normalizedBgPosition -= backgroundImageWidth;
                 }
+                backgroundSvgRef.current.style.transform = `translateX(${normalizedBgPosition}px)`;
+            }
 
-                backgroundRef.current.style.transform = `translateX(${normalizedBgPosition}px)`;
+            if (backgroundTextRef.current && backgroundImageWidth > 0) {
+                const backgroundPosition = position * BACKGROUND_TEXT_SCROLL_SPEED;
+                let normalizedBgPosition = backgroundPosition % backgroundImageWidth;
+                if (normalizedBgPosition > 0) {
+                    normalizedBgPosition -= backgroundImageWidth;
+                }
+                backgroundTextRef.current.style.transform = `translateX(${normalizedBgPosition}px)`;
             }
 
             animationRef.current = requestAnimationFrame(animate);
@@ -115,7 +119,7 @@ export default function Slider() {
         <div className="flex flex-col overflow-hidden select-none relative h-screen">
             <div className="absolute inset-0 overflow-hidden h-full w-full">
                 <div
-                    ref={backgroundRef}
+                    ref={backgroundSvgRef}
                     className="absolute flex h-full transform top-0 left-0"
                 >
                     {Array(30).fill(null).map((_, i) => (
@@ -127,14 +131,31 @@ export default function Slider() {
                                 width: `${backgroundImageWidth}px`,
                             }}
                         >
-                            {/* <Image
-                                src="/charlie.png"
+                            <Image
+                                src="/face.svg"
                                 alt="Background"
-                                fill
-                                className="object-cover"
-                                sizes="100vw"
-                            /> */}
-                            <h1 className="text-[100vh] opacity-5 text-shadow-none">charlie</h1>
+                                className="object-cover opacity-5 h-screen w-auto"
+                                width={500}
+                                height={500}
+                            />
+                        </div>
+                    ))}
+                </div>
+
+                <div
+                    ref={backgroundTextRef}
+                    className="absolute flex h-full transform top-0 left-0"
+                >
+                    {Array(30).fill(null).map((_, i) => (
+                        <div
+                            key={i}
+                            className="relative shrink-0"
+                            style={{
+                                height: '100vh',
+                                width: `${backgroundImageWidth}px`,
+                            }}
+                        >
+                            <h1 className="absolute inset-0 text-[100vh] opacity-5 tracking-tight">charlie</h1>
                         </div>
                     ))}
                 </div>
@@ -147,7 +168,7 @@ export default function Slider() {
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
-                    className="w-full overflow-hidden cursor-grab py-16"
+                    className="w-full overflow-hidden py-16"
                     style={{
                         perspective: '2000px',
                         perspectiveOrigin: 'center center',
@@ -163,8 +184,7 @@ export default function Slider() {
                         {multipliedProjects.map((project, index) => (
                             <div
                                 key={`${project.id}-${index}`}
-                                className="shrink-0 pointer-events-none h-fit opacity-80"
-                                // style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
+                                className="shrink-0 pointer-events-none h-fit opacity-90"
                                 style={{ willChange: "transform" }}
                             >
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/0 z-10 pointer-events-none"></div>

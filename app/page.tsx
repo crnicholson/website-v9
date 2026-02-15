@@ -1,8 +1,14 @@
+'use client'
+
 import Link from "next/link"
+import { useState } from "react"
 
 import Slider from '@/components/Slider'
 
 export default function Home() {
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+
   return (
     <>
       <div className="w-full h-screen flex items-center justify-center relative">
@@ -12,31 +18,31 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 z-20 h-screen w-full flex flex-col items-center justify-between">
           <div className="flex flex-row items-center justify-between h-fit w-full px-8 py-6">
             <h1 className="">charlie</h1>
+            <h1 className="hover:text-shadow-none pointer-events-auto" onClick={ () => setAboutOpen(!aboutOpen)}>about</h1>
           </div>
           <div className="flex flex-row items-center justify-between h-fit w-full px-8 py-6">
-            <h1 className=""></h1>
+            <h1 className="hover:text-shadow-none pointer-events-auto" onClick={() => setSettingsOpen(!settingsOpen)}>settings</h1>
             <Link href="https://www.instagram.com/charliennnicholson/" className="hover:text-shadow-none pointer-events-auto">@charliennnicholson</Link>
           </div>
         </div>
-
-        {/* <figure className="w-50 h-50 pointer-events-auto perspective-[1143px] -rotate-y-50 skew-y-20 transform">
-          <div className="absolute inset-0 rounded-inherit">
-            <img
-              decoding="auto"
-              width={200}
-              height={250}
-              src="/projects/apex.png"
-              alt="Ticker Image"
-              className="block w-full h-full rounded-inherit object-cover object-center"
-            />
+      </div>
+      <div className="inset-0 absolute z-30">
+        {aboutOpen && (
+          <div className="absolute inset-0 z-30 bg-white/90 backdrop-blur-sm flex items-center justify-center p-8">
+            <div className="max-w-2xl text-center">
+              <h2 className="text-3xl mb-4">About Me</h2>
+              <p className="text-lg">I'm charlie, a designer and developer based in the UK. I have a passion for creating unique digital experiences that blend creativity and technology. With a background in both design and development, I enjoy working on projects that challenge the boundaries of what's possible on the web.</p>
+            </div>
           </div>
-        </figure>
-
-        <div className="w-50 h-50" style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", opacity: 0.7, willChange: "transform" }}>
-          <div style={{ position: "absolute", borderRadius: "inherit", inset: 0 }}>
-            <img decoding="auto" width="200" height="250" src="/projects/apex.png" alt="Ticker Image" style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", objectPosition: "center center", objectFit: "cover" }} />
+        )}
+        {settingsOpen && (
+          <div className="absolute inset-0 z-30 bg-white/90 backdrop-blur-sm flex items-center justify-center p-8">
+            <div className="max-w-2xl text-center">
+              <h2 className="text-3     xl mb-4">Settings</h2>
+              <p className="text-lg">Settings content goes here. You can customize your experience by adjusting various options and preferences. Stay tuned for more features and updates!</p>
+            </div>
           </div>
-        </div> */}
+        )}  
       </div>
     </>
   )
