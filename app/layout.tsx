@@ -10,7 +10,6 @@ const newEdge = localFont({
   display: 'swap',
 });
 
-
 export const metadata: Metadata = {
   title: "charlie nicholson",
   description: "i don't even know man",

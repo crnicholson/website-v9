@@ -11,18 +11,25 @@ interface Project {
 
 const PROJECTS: Project[] = [
     { id: 1, image: '/projects/bioplastic.avif', title: '' },
-    { id: 2, image: '/projects/apex.png', title: '' },
+    // { id: 2, image: '/projects/apex.png', title: '' },
     { id: 3, image: '/projects/beantown.jpeg', title: '' },
     { id: 4, image: '/projects/carbon.jpeg', title: '' },
     { id: 5, image: '/projects/stratosoarMK2.png', title: '' },
-    { id: 6, image: '/projects/hamClub.png', title: '' },
+    // { id: 6, image: '/projects/hamClub.png', title: '' },
+    { id: 7, image: '/projects/outfits.png', title: '' },
+    { id: 8, image: '/projects/fonts.png', title: '' },
+    { id: 9, image: '/projects/hackfinger.gif', title: '' },
+    { id: 10, image: '/projects/v3.png', title: '' },
+    // { id: 11, image: '/projects/littleLora.png', title: '' },
+    { id: 12, image: '/projects/woodworks.jpeg', title: '' },
 ];
 
-const IMAGE_GAP = 60;
-const SCROLL_SPEED = 0.75;
-const IMAGE_WIDTH = 180;
-const BACKGROUND_SVG_SCROLL_SPEED = -0.5;
-const BACKGROUND_TEXT_SCROLL_SPEED = -0.3;
+
+const IMAGE_GAP = 200;
+const SCROLL_SPEED = -3;
+const IMAGE_WIDTH = 500;
+const BACKGROUND_SVG_SCROLL_SPEED = -1.5;
+const BACKGROUND_TEXT_SCROLL_SPEED = -0.9;
 
 export default function Slider() {
     const sliderRef = useRef<HTMLDivElement>(null);
@@ -39,12 +46,12 @@ export default function Slider() {
 
     useEffect(() => {
         const img = new window.Image();
-        img.src = '/charlie.png';
+        img.src = '/face.svg';
         img.onload = () => {
             const aspectRatio = img.width / img.height;
             const screenHeight = window.innerHeight;
             const scaledWidth = screenHeight * aspectRatio;
-            setBackgroundImageWidth(scaledWidth);
+            setBackgroundImageWidth(scaledWidth + 400);
         };
     }, []);
 
@@ -155,20 +162,20 @@ export default function Slider() {
                                 width: `${backgroundImageWidth}px`,
                             }}
                         >
-                            <h1 className="absolute inset-0 text-[100vh] opacity-5 tracking-tight">charlie</h1>
+                            {/* <h1 className="absolute inset-0 text-[100vh] opacity-5 tracking-tight">charlie</h1> */}
                         </div>
                     ))}
                 </div>
             </div>
 
-            <div className="flex-1 flex items-center justify-center overflow-hidden relative z-10">
+            <div className="flex-1 flex items-end justify-center overflow-hidden relative z-10">
                 <div
                     ref={sliderRef}
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
-                    className="w-full overflow-hidden py-16"
+                    className="w-full overflow-hidden pt-16"
                     style={{
                         perspective: '2000px',
                         perspectiveOrigin: 'center center',
@@ -176,7 +183,7 @@ export default function Slider() {
                 >
                     <div
                         ref={trackRef}
-                        className="flex"
+                        className="flex items-end"
                         style={{
                             gap: `${IMAGE_GAP}px`,
                         }}
@@ -184,7 +191,8 @@ export default function Slider() {
                         {multipliedProjects.map((project, index) => (
                             <div
                                 key={`${project.id}-${index}`}
-                                className="shrink-0 pointer-events-none h-fit opacity-90"
+                                className="shrink-0 pointer-events-none w-fit opacity-100"
+                                // style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
                                 style={{ willChange: "transform" }}
                             >
                                 <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/0 z-10 pointer-events-none"></div>
@@ -194,7 +202,7 @@ export default function Slider() {
                                     alt={project.title}
                                     width={IMAGE_WIDTH}
                                     height={IMAGE_WIDTH}
-                                    className="overflow-hidden h-auto"
+                                    className="overflow-hidden w-auto"
                                     draggable={false}
                                 />
                             </div>
