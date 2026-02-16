@@ -15,7 +15,7 @@ export default function Home() {
         <Slider />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 z-10 shadow-[inset_80px_0_300px_rgba(255,255,255,1),inset_-80px_0_300px_rgba(255,255,255,1)]" />
+      <div className="pointer-events-none absolute inset-0 z-10 shadow-[inset_60px_0_200px_rgba(255,255,255,1),inset_-60px_0_200px_rgba(255,255,255,1)]" />
 
       <div className="absolute inset-0 z-20 h-screen w-full flex flex-col items-center justify-between pointer-events-none">
         <div className="flex flex-row items-center justify-between h-fit w-full px-8 py-6 pointer-events-auto">
@@ -31,7 +31,6 @@ export default function Home() {
       {aboutOpen && (
         <div className="inset-0 absolute z-30 h-screen flex items-center justify-center p-8 bg-black/30">
           <div className="max-w-2xl bg-gray-50 text-shadow-none p-6 border border-[#f3ff00]">
-
             <div className="flex flex-row justify-between items-center w-full h-fit mb-4">
               <h1 className="text-3xl">about</h1>
               <svg
