@@ -6,21 +6,21 @@ import Image from 'next/image';
 interface Project {
     id: number;
     image: string;
-    title: string;
+    name: string;
 }
 
 const PROJECTS: Project[] = [
-    { id: 1, image: '/projects/bioplastic.avif', title: '' },
+    { id: 1, image: '/projects/bioplastic.avif', name: 'SEAWEED BIOPLASTIC' },
     // { id: 2, image: '/projects/apex.png', title: '' },
-    { id: 5, image: '/projects/stratosoarMK2.png', title: '' },
+    { id: 5, image: '/projects/stratosoarMK2.png', name: 'STRATOSOAR' },
     // { id: 6, image: '/projects/hamClub.png', title: '' },
-    { id: 7, image: '/projects/outfits.png', title: '' },
-    { id: 12, image: '/projects/woodworks.jpeg', title: '' },
-    { id: 8, image: '/projects/fonts.png', title: '' },
-    { id: 3, image: '/projects/beantown.jpeg', title: '' },
-    { id: 9, image: '/projects/hackfinger.gif', title: '' },
-    { id: 4, image: '/projects/carbon.jpeg', title: '' },
-    { id: 10, image: '/projects/v3.png', title: '' },
+    { id: 7, image: '/projects/outfits.png', name: 'OUTFIT GENERATOR' },
+    { id: 12, image: '/projects/woodworks.jpeg', name: 'WOODWORKING BUSINESS' },
+    { id: 8, image: '/projects/fonts.png', name: 'FONTS' },
+    { id: 3, image: '/projects/beantown.jpeg', name: 'CV RESISTOR DETECTOR' },
+    { id: 9, image: '/projects/hackfinger.gif', name: 'NERVE CONTROLLED FINGER' },
+    { id: 4, image: '/projects/carbon.jpeg', name: 'DIY CARBON CAPTURE' },
+    { id: 10, image: '/projects/v3.png', name: 'V3 WEBSITE' },
     // { id: 11, image: '/projects/littleLora.png', title: '' },
 ];
 
@@ -193,13 +193,17 @@ export default function Slider() {
                                     height: `${IMAGE_HEIGHT}px`,
                                     willChange: "transform"
                                 }}
-                                // style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
+                            // style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
                             >
                                 {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/0 z-10 pointer-events-none"></div> */}
 
+                                <div className="flex flex-row justify-between items-center w-full h-fit font-walter text-shadow-none">
+                                    <h1 className="text-xs">{project.name}</h1>
+                                    <h1 className="text-xs">→</h1>
+                                </div>
                                 <Image
                                     src={project.image}
-                                    alt={project.title}
+                                    alt={project.name}
                                     width={IMAGE_WIDTH}
                                     height={IMAGE_HEIGHT}
                                     className="overflow-hidden object-cover w-full h-full"

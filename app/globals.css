@@ -2,6 +2,11 @@
 
 @theme {
     --font-new-edge: var(--font-new-edge);
+    --font-walter: var(--font-walter);
+    --font-ibm: var(--font-ibm);
+    --font-geist: var(--font-geist);
+    --font-marola: var(--font-marola);
+    --font-resolution: var(--font-resolution);
 }
 
 body {
