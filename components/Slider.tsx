@@ -11,8 +11,8 @@ interface Project {
 
 const PROJECTS: Project[] = [
     { id: 1, image: '/projects/bioplastic.avif', name: 'SEAWEED BIOPLASTIC' },
-    // { id: 2, image: '/projects/apex.png', title: '' },
-    { id: 5, image: '/projects/stratosoarMK2.png', name: 'STRATOSOAR' },
+    { id: 2, image: '/projects/apex.png', name: 'APEX' },
+    { id: 5, image: '/projects/stratoSoarMK2.png', name: 'STRATOSOAR' },
     // { id: 6, image: '/projects/hamClub.png', title: '' },
     { id: 7, image: '/projects/outfits.png', name: 'OUTFIT GENERATOR' },
     { id: 12, image: '/projects/woodworks.jpeg', name: 'WOODWORKING BUSINESS' },
