@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from '@vercel/analytics/next';
+
 import "./globals.css";
 
 import CustomCursor from "@/components/CustomCursor";
@@ -58,6 +60,7 @@ export default function RootLayout({
       >
         {children}
         <CustomCursor />
+        <Analytics />
       </body>
     </html>
   );
