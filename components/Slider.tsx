@@ -7,17 +7,19 @@ interface Project {
     id: number;
     image: string;
     name: string;
+    about?: string;
+    link?: string;
 }
 
 const PROJECTS: Project[] = [
-    { id: 1, image: '/projects/bioplastic.avif', name: 'SEAWEED BIOPLASTIC' },
-    { id: 2, image: '/projects/apex.png', name: 'APEX' },
-    { id: 5, image: '/projects/stratoSoarMK2.png', name: 'STRATOSOAR' },
+    { id: 1, image: '/projects/bioplastic.avif', name: 'SEAWEED BIOPLASTIC', about: 'during summer 2023, i created custom bioplastics from seaweed and made a detailed journal of all my experiments.', link: 'https://nicholsonlabs.gitbook.io/labs/bioplastic' },
+    { id: 5, image: '/projects/stratoSoarMK2.png', name: 'STRATOSOAR', about: 'this is my main and largest project, taking place over the course of 3 and a half years. stratosoar is a low-cost, lightweight uav designed for deployment from weather balloons. it flies autonomously to gps coordinates, providing an affordable alternative to conventional uavs for educators, researchers, and hobbyists.', link: 'https://github.com/crnicholson/StratoSoar-MK3' },
     // { id: 6, image: '/projects/hamClub.png', title: '' },
     { id: 7, image: '/projects/outfits.png', name: 'OUTFIT GENERATOR' },
     { id: 12, image: '/projects/woodworks.jpeg', name: 'WOODWORKING BUSINESS' },
     { id: 8, image: '/projects/fonts.png', name: 'FONTS' },
     { id: 3, image: '/projects/beantown.jpeg', name: 'CV RESISTOR DETECTOR' },
+    { id: 2, image: '/projects/apex.png', name: 'APEX' },
     { id: 9, image: '/projects/hackfinger.gif', name: 'NERVE CONTROLLED FINGER' },
     { id: 4, image: '/projects/carbon.jpeg', name: 'DIY CARBON CAPTURE' },
     { id: 10, image: '/projects/v3.png', name: 'V3 WEBSITE' },
@@ -42,6 +44,9 @@ export default function Slider() {
     const [dragStart, setDragStart] = useState({ x: 0, scrollPos: 0 });
     const animationRef = useRef<number>(null);
     const [backgroundImageWidth, setBackgroundImageWidth] = useState(1000);
+    const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [hasDragged, setHasDragged] = useState(false);
 
     const multipliedProjects = Array(20).fill(PROJECTS).flat();
 
@@ -68,17 +73,44 @@ export default function Slider() {
 
     const handleMouseDown = (e: React.MouseEvent) => {
         setIsDragging(true);
+        setHasDragged(false);
         setDragStart({ x: e.clientX, scrollPos: position });
     };
 
     const handleMouseMove = (e: React.MouseEvent) => {
         if (!isDragging) return;
         const delta = e.clientX - dragStart.x;
+        if (Math.abs(delta) > 5) {
+            setHasDragged(true);
+        }
         setPosition(dragStart.scrollPos - delta * 2);
     };
 
     const handleMouseUp = () => {
         setIsDragging(false);
+    };
+
+    const handleProjectClick = (project: Project, e: React.MouseEvent) => {
+        if (!hasDragged && project.link) {
+            window.open(project.link, '_blank', 'noopener,noreferrer');
+        }
+    };
+
+    const handleProjectMouseEnter = (project: Project, e: React.MouseEvent) => {
+        if (project.about || project.link) {
+            setHoveredProject(project);
+            setMousePosition({ x: e.clientX, y: e.clientY });
+        }
+    };
+
+    const handleProjectMouseMove = (e: React.MouseEvent) => {
+        if (hoveredProject) {
+            setMousePosition({ x: e.clientX, y: e.clientY });
+        }
+    };
+
+    const handleProjectMouseLeave = () => {
+        setHoveredProject(null);
     };
 
     useEffect(() => {
@@ -188,11 +220,15 @@ export default function Slider() {
                         {multipliedProjects.map((project, index) => (
                             <div
                                 key={`${project.id}-${index}`}
-                                className="shrink-0 pointer-events-none opacity-100"
+                                className={`shrink-0 pointer-events-auto opacity-100`}
                                 style={{
                                     height: `${IMAGE_HEIGHT}px`,
                                     willChange: "transform"
                                 }}
+                                onMouseEnter={(e) => handleProjectMouseEnter(project, e)}
+                                onMouseMove={handleProjectMouseMove}
+                                onMouseLeave={handleProjectMouseLeave}
+                                onClick={(e) => handleProjectClick(project, e)}
                             // style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
                             >
                                 {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/0 z-10 pointer-events-none"></div> */}
@@ -214,6 +250,27 @@ export default function Slider() {
                     </div>
                 </div>
             </div>
+
+            {hoveredProject && (hoveredProject.about || hoveredProject.link) && (
+                <div
+                    className="fixed z-50 pointer-events-none"
+                    style={{
+                        left: `${mousePosition.x + 20}px`,
+                        top: `${mousePosition.y + 20}px`,
+                        transform: 'translate(0, 0)',
+                    }}
+                >
+                    <div className="bg-white border border-black shadow-lg p-4 max-w-sm text-shadow-none">
+                        <h2 className="font-walter text-sm mb-2">{hoveredProject.name}</h2>
+                        {hoveredProject.about && (
+                            <p className="text-xs leading-relaxed">{hoveredProject.about}</p>
+                        )}
+                        {hoveredProject.link && (
+                            <p className="text-xs mt-2 opacity-60">click anywhere to view project</p>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
