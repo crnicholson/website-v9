@@ -12,21 +12,33 @@ export default function CV() {
                 <div className="flex flex-col gap-2 mb-8">
                     <span className="flex flex-row gap-2 items-center">
                         <Badge>
+                            2025
+                        </Badge>
+                        Summer intern for Hack Club focusing on semiconductor manufacturing.
+                    </span>
+                    <span className="flex flex-row gap-2 items-center">
+                        <Badge>
+                            2024-2025
+                        </Badge>
+                        <span>Lead organizer for <Link href="https://apex.hackclub.com" className="underline">Apex</Link>, a 3-month-long hackathon culminating in a near space experience.</span>
+                    </span>
+                    <span className="flex flex-row gap-2 items-center">
+                        <Badge>
                             2024-
                         </Badge>
                         Director for the Hack Club Amateur Radio Club.
                     </span>
-                    <span className="flex flex-row gap-2 items-center">
+                    {/* <span className="flex flex-row gap-2 items-center">
                         <Badge>
                             2024-
                         </Badge>
                         Co-founder and co-leader of a local Hack Club.
-                    </span>
+                    </span> */}
                     <span className="flex flex-row gap-2 items-center">
                         <Badge>
                             2024-
                         </Badge>
-                        Youth Ambassador, Collegiate Outreach, and Science Advisor the Sci-Tech Amateur Radio Society.
+                        Youth Ambassador and Collegiate Outreach the Sci-Tech Amateur Radio Society.
                     </span>
                     <span className="flex flex-row gap-2 items-center">
                         <Badge>
@@ -38,7 +50,7 @@ export default function CV() {
                         <Badge>
                             2023-
                         </Badge>
-                        Member of The Youth Subcommittee of The North East HamXposition.
+                        Member of The Youth Subcommittee of The Northeast HamXposition.
                     </span>
                     <span className="flex flex-row gap-2 items-center">
                         <Badge>
@@ -50,15 +62,18 @@ export default function CV() {
 
                 <h1 className="text-2xl mb-4">Skills</h1>
                 <div className="flex flex-col gap-2 mb-5">
-                    <p>Programming / Software</p>
+                    <p>Programming/Software</p>
                     <span>• <Badge>
                         C, C++, Rust, Python
+                    </Badge></span>
+                    <span>• <Badge>
+                        Embedded systems
                     </Badge></span>
                     <span>• <Badge>
                         React, Next.js, TypeScript, Tailwind, HTML
                     </Badge></span>
                     <span>• <Badge>
-                        Git, GitHub, Version control
+                        Git, GitHub, version control
                     </Badge></span>
                 </div>
 
@@ -68,26 +83,45 @@ export default function CV() {
                         KiCAD, printed circuit board design (PCB)
                     </Badge></span>
                     <span>• <Badge>
-                        AVR, ARM
-                    </Badge></span>
-                    <span>• <Badge>
-                        RF design, power design, 4-layer-board design
+                        Circuits, electronics, circuit prototyping
                     </Badge></span>
                     <span>• <Badge>
                         Arduino, Raspberry Pi, ESP32/ESP8266
                     </Badge></span>
                     <span>• <Badge>
-                        Test equipment (oscilloscopes, spectrum analyzers, signal generators)
+                        RF design, power design, 4-layer-board design
+                    </Badge></span>
+                    <span>• <Badge>
+                        AVR, ARM
+                    </Badge></span>
+                    <span>• <Badge>
+                        Test equipment (oscilloscopes, spectrum analyzers, signal generators), soldering
                     </Badge></span>
                 </div>
 
-                <div className="flex flex-col gap-2 mb-8">
-                    <p>Engineering / Fabrication</p>
+                <div className="flex flex-col gap-2 mb-5">
+                    <p>Engineering/Fabrication</p>
                     <span>• <Badge>
                         3D printing, CNCs, laser cutter, handtools
                     </Badge></span>
                     <span>• <Badge>
                         Fusion 360, OnShape, Simscale
+                    </Badge></span>
+                </div>
+
+                <div className="flex flex-col gap-2 mb-8">
+                    <p>Other</p>
+                    <span>• <Badge>
+                        Aviation, aerodynamics
+                    </Badge></span>
+                    <span>• <Badge>
+                        Photoshop, Figma, graphic design
+                    </Badge></span>
+                    <span>• <Badge>
+                        Business management
+                    </Badge></span>
+                    <span>• <Badge>
+                        Public speaking
                     </Badge></span>
                 </div>
 
@@ -115,7 +149,7 @@ export default function CV() {
                         <Badge>
                             2024
                         </Badge>
-                        Recipient of the Bagel Fund grant for my research in StratoSoar.
+                        <span>Recipient of the Bagel Fund grant for my research in <Link href="https://github.com/crnicholson/StratoSoar-MK3" className="underline">StratoSoar</Link>.</span>
                     </span>
                     <span className="flex flex-row gap-2 items-center">
                         <Badge>
@@ -139,14 +173,14 @@ export default function CV() {
                         <Badge>
                             2023
                         </Badge>
-                        Presenter and author of two talks at the North East HamXposition.
+                        Presenter and author of two talks at the Northeast HamXposition.
                     </span>
-                    <span className="flex flex-row gap-2 items-center">
+                    {/* <span className="flex flex-row gap-2 items-center">
                         <Badge>
                             2020-2023
                         </Badge>
                         Owner of a successful woodworking business.
-                    </span>
+                    </span> */}
                     <span className="flex flex-row gap-2 items-center">
                         <Badge>
                             2022
