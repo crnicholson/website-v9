@@ -266,7 +266,7 @@ export default function Slider() {
                             <p className="text-xs leading-relaxed">{hoveredProject.about}</p>
                         )}
                         {hoveredProject.link && (
-                            <p className="text-xs mt-2 opacity-60">click anywhere to view project</p>
+                            <p className="text-xs mt-2 opacity-60">(click anywhere to view project)</p>
                         )}
                     </div>
                 </div>

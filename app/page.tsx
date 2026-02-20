@@ -21,7 +21,9 @@ export default function Home() {
       <div className="absolute inset-0 z-20 h-screen w-full flex flex-col items-center justify-between pointer-events-none text-sm">
         <div className="flex flex-row items-center justify-between h-fit w-full px-8 py-6 pointer-events-auto">
           <h1 className="">charlie</h1>
-          <h1 className="hover:text-shadow-none" onClick={() => setAboutOpen(!aboutOpen)}>about</h1>
+          <span>
+            <span onClick={() => setAboutOpen(!aboutOpen)}>about</span>{" "}|{" "}<Link className="cursor-none" href="/cv">experiences + skills</Link>
+          </span>
         </div>
         <div className="flex flex-row items-center justify-between h-fit w-full px-8 py-6 pointer-events-auto">
           <h1 className="hover:text-shadow-none" onClick={() => setSettingsOpen(!settingsOpen)}>settings</h1>
