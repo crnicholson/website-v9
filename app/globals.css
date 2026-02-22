@@ -27,7 +27,8 @@ body {
 }
 
 ::selection {
-    background-color: rgba(209, 160, 15, 0.89);
+    /* background-color: rgba(255, 191, 0, 0.89); */
+    background-color: rgb(247, 208, 89);
     color: rgb(36, 34, 34);
     mix-blend-mode: difference;
 }
