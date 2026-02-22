@@ -6,7 +6,7 @@ export default function CV() {
     return (
         <div className="bg-gray-50 w-full min-h-screen flex items-center justify-center pt-20 px-20">
             <div className="w-2/3">
-                <Link href="/" className="text-gray-500 underline mb-10 text-sm block">← Back to Home</Link>
+                <Link href="/" className="text-gray-700 underline mb-10 text-sm block">← Back to Home</Link>
 
                 <h1 className="text-2xl mb-5">Experiences</h1>
                 <div className="flex flex-col gap-2 mb-8">
@@ -189,7 +189,7 @@ export default function CV() {
                     </span>
                 </div>
 
-                <p className="w-full text-center text-gray-500 mt-20 pb-10">© 2026 Charlie Nicholson. <Link className="underline" href="mailto:charlienicholsonr@gmail.com">charlienicholsonr@gmail.com</Link>.</p>
+                <p className="w-full text-center text-gray-700 mt-20 pb-10 text-sm">© 2026 Charlie Nicholson. <Link className="underline" href="mailto:charlienicholsonr@gmail.com">charlienicholsonr@gmail.com</Link>.</p>
             </div>
         </div>
     )

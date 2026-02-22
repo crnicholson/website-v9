@@ -10,7 +10,7 @@
 }
 
 body {
-    cursor: none; 
+    cursor: none;
 }
 
 .custom-cursor {
@@ -24,4 +24,10 @@ body {
     z-index: 9999;
     transform: translate(-50%, -50%);
     transition: opacity 0.2s ease;
+}
+
+::selection {
+    background-color: rgba(209, 160, 15, 0.89);
+    color: rgb(36, 34, 34);
+    mix-blend-mode: difference;
 }

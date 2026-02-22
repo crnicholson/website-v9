@@ -52,13 +52,11 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <p className="mb-4">hi, i'm charlie. i am 15-year-old who likes to create through many different mediums.</p>
-            <p className="mb-4">typically i do software, electrical, and mechanical engineering, but i also dabble in different areas of design (web, graphic, fashion), although i'm not very good at it :).</p>
-            <p className="mb-4">if i'm not creating something, you can probably find me listening to <Link className="underline" href="https://open.spotify.com/user/31ybjmvbe7siydivevnk37vditjq?si=a79d39522b4747f3">music</Link>, biking, or enjoying nature.</p>
-            <p className="mb-4">find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">github</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">linkedin</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">instagram</Link>.</p>
-            {/* <br /> */}
-            {/* <p>fun fact: i also really like fashion and i am working on creating some of my own designs.</p> */}
-            <p className="mb-4">ps: i worked at <Link className="underline" href="https://hackclub.com/">hack club</Link> this summer. i am looking for internship opportunities this summer, 2026!</p>
+            <p className="mb-4">Hi, I'm Charlie. I am 15-year-old who likes to create through many different mediums.</p>
+            <p className="mb-4">Typically I do software, electrical, and mechanical engineering, but I also dabble in different areas of design (web, graphic, fashion), although I'm not very good at it :).</p>
+            <p className="mb-4">If I'm not creating something, you can probably find me listening to <Link className="underline" href="https://open.spotify.com/user/31ybjmvbe7siydivevnk37vditjq?si=a79d39522b4747f3">music</Link>, biking, or enjoying nature.</p>
+            <p className="mb-4">Find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">GitHub</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">LinkedIn</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">Instagram</Link>.</p>
+            <p className="mb-4">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this summer. I am looking for internship opportunities this summer, 2026! Please reach out to me if you have any leads.</p>
 
             <div className="flex flex-row items-center w-full h-fit gap-10">
               <Image
@@ -67,7 +65,7 @@ export default function Home() {
                 width={200}
                 height={200}
               />
-              <span className="">← yes, this is i!</span>
+              <span className="">← Yes, this is I!</span>
             </div>
           </div>
         </div>
