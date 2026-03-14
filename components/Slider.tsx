@@ -4,14 +4,16 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
 interface Project {
-    id: number;
-    image: string;
-    name: string;
+    id: number | string;
+    type?: 'menu' | 'project';
+    image?: string;
+    name?: string;
     about?: string;
     link?: string;
 }
 
 const PROJECTS: Project[] = [
+    { id: 'menu', type: 'menu' },
     { id: 1, image: '/projects/bioplastic.avif', name: 'SEAWEED BIOPLASTIC', about: 'During summer 2023, I created custom bioplastics from seaweed and made a detailed journal of all my experiments.', link: 'https://nicholsonlabs.gitbook.io/labs/bioplastic' },
     { id: 5, image: '/projects/stratoSoarMK2.png', name: 'STRATOSOAR', about: 'This is my main and largest project, taking place over the course of 3 and a half years. StratoSoar is a low-cost, lightweight UAV designed for deployment from weather balloons. It flies autonomously to GPS coordinates, providing an affordable alternative to conventional UAVs for educators, researchers, and hobbyists.', link: 'https://github.com/crnicholson/StratoSoar-MK3' },
     // { id: 6, image: '/projects/hamClub.png', title: '' },
@@ -22,7 +24,10 @@ const PROJECTS: Project[] = [
     // { id: 3, image: '/projects/beantown.jpeg', name: 'CV RESISTOR DETECTOR', about: 'This won first place at the 2023 Beantown Bash Hackathon. It uses OpenCV to categorize the colors of the bands on a resistor to determine the value of it.', link: 'https://github.com/mpkendall/resistorfinder' },
     { id: 2, image: '/projects/apex.png', name: 'APEX', about: 'I was a lead organizer for Apex, a 3-month-long hackathon culminating in a launch of 15 student projects into near space on a high-altitude weather balloon. We managed to raise over $15,000 and allowed novel hardware projects to be launched.', link: 'https://apex.hackclub.com' },
     { id: 9, image: '/projects/hackfinger.gif', name: 'NERVE CONTROLLED FINGER', about: 'I developed a custom circuit for processing nerve signals along with a custom finger to display the signals.' },
-    { id: 10, image: '/projects/v3.png', name: 'V3 WEBSITE', about: `I'm passionate that the web is becoming an increasingly mundane and boring world where we have to learn about people through text on a screen. As an auxillary personal website, I developed a website that allows people to experience who I really am.`, link:'https://v3.crnicholson.com' },
+    { id: 10, image: '/projects/v3.png', name: 'V3 WEBSITE', about: `I'm passionate that the web is becoming an increasingly mundane and boring world where we have to learn about people through text on a screen. As an auxillary personal website, I developed a website that allows people to experience who I really am.`, link: 'https://v3.crnicholson.com' },
+    { id: 13, image: '/projects/softrobotics.png', name: 'SOFT ROBOTICS', about: `I designed a series of novel silicone-based soft robotic grippers.` },
+    { id: 14, image: '/projects/foldingglider.png', name: 'FOLDING GLIDER', about: `I designed a glider laser cut from one flat peice of cardboard to fold into a flying wing shape with correct airfoil geometry. I also designed a parametric design software that calculated all the parameters for the laser cutter based on the weight and cardboard density.` },
+    { id: 15, image: '/projects/soldering.png', name: 'SOLDERING STATION', about: `I designed an 8-foot long fully-custom soldering and electronics workbench right next to my bed!` },
     // { id: 11, image: '/projects/littleLora.png', title: '' },
 ];
 
@@ -34,7 +39,7 @@ const IMAGE_HEIGHT = 500;
 const BACKGROUND_SVG_SCROLL_SPEED = -1.5;
 const BACKGROUND_TEXT_SCROLL_SPEED = -0.9;
 
-export default function Slider() {
+export default function Slider({ onAboutClick, onSocialsClick }: { onAboutClick: () => void; onSocialsClick: () => void }) {
     const sliderRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const backgroundSvgRef = useRef<HTMLDivElement>(null);
@@ -209,7 +214,9 @@ export default function Slider() {
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
                     className="w-full overflow-hidden pt-16 h-fit"
+                // style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
                 >
+                    {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/0 z-10 pointer-events-none"></div> */}
                     <div
                         ref={trackRef}
                         className="flex items-end"
@@ -225,26 +232,51 @@ export default function Slider() {
                                     height: `${IMAGE_HEIGHT}px`,
                                     willChange: "transform"
                                 }}
-                                onMouseEnter={(e) => handleProjectMouseEnter(project, e)}
-                                onMouseMove={handleProjectMouseMove}
-                                onMouseLeave={handleProjectMouseLeave}
-                                onClick={(e) => handleProjectClick(project, e)}
-                            // style={{ transform: "perspective(1143px) rotateY(-50deg) skewY(20deg)", willChange: "transform" }}
+                                onMouseEnter={(e) => project.type !== 'menu' && handleProjectMouseEnter(project, e)}
+                                onMouseMove={project.type !== 'menu' ? handleProjectMouseMove : undefined}
+                                onMouseLeave={project.type !== 'menu' ? handleProjectMouseLeave : undefined}
+                                onClick={(e) => project.type !== 'menu' && handleProjectClick(project, e)}
                             >
-                                {/* <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/0 z-10 pointer-events-none"></div> */}
-
-                                <div className="flex flex-row justify-between items-center w-full h-fit font-walter text-shadow-none">
-                                    <h1 className="text-xs">{project.name}</h1>
-                                    <h1 className="text-xs">→</h1>
-                                </div>
-                                <Image
-                                    src={project.image}
-                                    alt={project.name}
-                                    width={IMAGE_WIDTH}
-                                    height={IMAGE_HEIGHT}
-                                    className="overflow-hidden object-cover w-full h-full"
-                                    draggable={false}
-                                />
+                                {project.type === 'menu' ? (
+                                    <div className="w-full h-full bg-white p-6 min-w-sm z-50 font-walter text-xl">
+                                        <h1 className="text-2xl mb-4">TABLE OF CONTENTS</h1>
+                                        <div className="flex flex-col gap-2">
+                                            {/* <div className="flex flex-row justify-between items-center w-full h-fit">
+                                                <a href="/">1. HOME</a>
+                                                <h1>→</h1>
+                                            </div> */}
+                                            <div className="flex flex-row justify-between items-center w-full h-fit">
+                                                <a onClick={onAboutClick}>1. ABOUT</a>
+                                                <h1>→</h1>
+                                            </div>
+                                            <div className="flex flex-row justify-between items-center w-full h-fit">
+                                                <a href="/cv">2. EXPERIENCES + SKILLS</a>
+                                                <h1>→</h1>
+                                            </div>
+                                            <div className="flex flex-row justify-between items-center w-full h-fit">
+                                                <a onClick={onSocialsClick}>3. SOCIALS</a>
+                                                <h1>→</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <div className="flex flex-row justify-between items-center w-full h-fit font-walter text-shadow-none">
+                                            <h1 className="text-xs">{project.name}</h1>
+                                            <h1 className="text-xs">→</h1>
+                                        </div>
+                                        {project.image && (
+                                            <Image
+                                                src={project.image}
+                                                alt={project.name || 'Project'}
+                                                width={IMAGE_WIDTH}
+                                                height={IMAGE_HEIGHT}
+                                                className="overflow-hidden object-cover w-full h-full pointer-events-none"
+                                                draggable={false}
+                                            />
+                                        )}
+                                    </>
+                                )}
                             </div>
                         ))}
                     </div>

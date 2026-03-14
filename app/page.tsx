@@ -8,12 +8,13 @@ import Slider from '@/components/Slider'
 
 export default function Home() {
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [socialsOpen, setSocialsOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
     <>
       <div className="w-full h-screen flex items-center justify-center relative bg-gray-50">
-        <Slider />
+        <Slider onAboutClick={() => setAboutOpen(!aboutOpen)} onSocialsClick={() => setSocialsOpen(!socialsOpen)} />
       </div>
 
       <div className="pointer-events-none absolute inset-0 z-10 shadow-[inset_60px_0_200px_rgba(255,255,255,1),inset_-60px_0_200px_rgba(255,255,255,1)]" />
