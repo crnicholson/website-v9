@@ -1,0 +1,116 @@
+[
+  {
+    "filename": "arduino.jpeg",
+    "title": "Arduino Prototype",
+    "date": "2023-03-15",
+    "description": "Early Arduino microcontroller setup for experimental sensor testing"
+  },
+  {
+    "filename": "balloon.jpeg",
+    "title": "High Altitude Balloon",
+    "date": "2023-06-02",
+    "description": "First weather balloon launch reaching 30km altitude"
+  },
+  {
+    "filename": "cutdownMechanism.png",
+    "title": "Cutdown Mechanism Design",
+    "date": "2023-07-10",
+    "description": "3D rendered cutdown mechanism for payload recovery systems"
+  },
+  {
+    "filename": "drugs.jpeg",
+    "title": "Chemistry Experiment",
+    "date": "2023-08-22",
+    "description": "Crystal formation during chemical synthesis process"
+  },
+  {
+    "filename": "fusion.png",
+    "title": "Fusion Concept",
+    "date": "2023-09-05",
+    "description": "Research visualization of plasma physics concepts"
+  },
+  {
+    "filename": "glider.png",
+    "title": "Glider Design",
+    "date": "2023-10-12",
+    "description": "CAD model of aerodynamic glider design iteration"
+  },
+  {
+    "filename": "hamRadioRoof.jpeg",
+    "title": "Ham Radio Setup",
+    "date": "2023-11-08",
+    "description": "Rooftop installation of amateur radio antenna system"
+  },
+  {
+    "filename": "meWithGlider.jpeg",
+    "title": "First Flight",
+    "date": "2023-12-20",
+    "description": "Successful maiden flight of custom-built glider"
+  },
+  {
+    "filename": "meWithRadioAndTV.jpeg",
+    "title": "Electronics Collection",
+    "date": "2024-01-14",
+    "description": "Vintage radio and electronics setup from personal collection"
+  },
+  {
+    "filename": "moistureSwing.png",
+    "title": "Moisture Sensor Prototype",
+    "date": "2024-02-28",
+    "description": "Oscillating moisture measurement device design"
+  },
+  {
+    "filename": "newbs.jpeg",
+    "title": "Team Workshop",
+    "date": "2024-03-17",
+    "description": "Collaborative engineering session with fellow makers"
+  },
+  {
+    "filename": "oldDesk.jpeg",
+    "title": "Workshop Space",
+    "date": "2024-04-09",
+    "description": "Personal maker space and tools setup"
+  },
+  {
+    "filename": "respirator.jpeg",
+    "title": "Safety Equipment",
+    "date": "2024-05-03",
+    "description": "Protective equipment for hazardous work environments"
+  },
+  {
+    "filename": "scrubber.jpeg",
+    "title": "Air Quality System",
+    "date": "2024-06-11",
+    "description": "Homemade air scrubbing and filtration system"
+  },
+  {
+    "filename": "sodaStream.jpeg",
+    "title": "Carbonation Project",
+    "date": "2024-07-22",
+    "description": "Custom beverage carbonation system modification"
+  },
+  {
+    "filename": "softRobot.jpeg",
+    "title": "Soft Robotics",
+    "date": "2024-08-30",
+    "description": "Flexible pneumatic actuator prototype development"
+  },
+  {
+    "filename": "stratoSoarMK1.jpeg",
+    "title": "StratoSoar Mark 1",
+    "date": "2024-09-18",
+    "description": "High-altitude research glider first generation"
+  },
+  {
+    "filename": "stratoSoarMK2.png",
+    "title": "StratoSoar Mark 2",
+    "date": "2024-10-25",
+    "description": "Advanced iteration with improved aerodynamics and payload capacity"
+  },
+  {
+    "filename": "wing.png",
+    "title": "Wing Structure",
+    "date": "2024-11-12",
+    "description": "Composite wing design with aerodynamic analysis"
+  }
+]
