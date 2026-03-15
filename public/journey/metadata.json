@@ -11,21 +11,19 @@
     },
     {
         "filename": "cutdownMechanism.png",
-        "title": "Cutdown Mechanism Design",
-        "date": "2024-09-18",
-        "description": "3D rendered cutdown mechanism for payload recovery systems"
+        "title": "Cutdown Mechanism Design for balloon payloads",
+        "date": "2024-09-18"
     },
     {
         "filename": "drugs.jpeg",
         "title": "Carbon capture sorbent synthesis",
         "date": "2023-06-22",
-        "description": "I made a special sorbent material for carbon capture utilizing moisture swing technology"
+        "description": "I made a special sorbent material for carbon capture utilizing moisture swing technology."
     },
     {
         "filename": "fusion.png",
-        "title": "Fusion Concept",
-        "date": "2024-09-05",
-        "description": "Research visualization of plasma physics concepts"
+        "title": "Fusion 360 CAD Design",
+        "date": "2024-09-05"
     },
     {
         "filename": "glider.png",
@@ -40,8 +38,7 @@
     {
         "filename": "meWithGlider.jpeg",
         "title": "First Flight",
-        "date": "2024-05-20",
-        "description": "Successful maiden flight of custom-built glider"
+        "date": "2023-06-20"
     },
     {
         "filename": "meWithRadioAndTV.jpeg",
@@ -51,12 +48,14 @@
     {
         "filename": "moistureSwing.png",
         "title": "Moisture Swing Carbon Capture Diagram",
-        "date": "2023-06-28"
+        "date": "2023-06-28",
+        "description": "I made a diagram to go with the paper I wrote about DIY carbon capture."
     },
     {
         "filename": "newbs.jpeg",
         "title": "HamXpo Conference",
-        "date": "2023-08-26"
+        "date": "2023-08-26",
+        "description": "Attended the HamXpo conference and gave two talks."
     },
     {
         "filename": "oldDesk.jpeg",
@@ -83,18 +82,18 @@
         "filename": "softRobot.jpeg",
         "title": "Soft Robotics",
         "date": "2023-08-30",
-        "description": "Flexible pneumatic actuator prototype development"
+        "description": "Electronically controlled pneumatic actuators."
     },
     {
         "filename": "softrobotics.png",
         "title": "Soft Robotics",
         "date": "2023-09-01",
-        "description": "Flexible pneumatic actuator prototype development"
+        "description": "Flexible pneumatic actuator prototype development."
     },
     {
         "filename": "stratoSoarMK1.jpeg",
         "title": "StratoSoar MK 1",
-        "date": "2024-05-18"
+        "date": "2023-06-18"
     },
     {
         "filename": "stratoSoarMK2.png",
@@ -150,7 +149,8 @@
     {
         "filename": "foamCNC.png",
         "title": "DIY CNC machine electronics",
-        "date": "2024-05-19"
+        "date": "2024-05-19",
+        "description": "I built and designed a custom CNC machine for cutting foam for my glider wing prototypes."
     },
     {
         "filename": "hydroponics.png",
@@ -160,12 +160,14 @@
     {
         "filename": "cfd.png",
         "title": "Computational Fluid Dynamics Simulation",
-        "date": "2024-04-04"
+        "date": "2024-04-04",
+        "description": "Airflow simulation on my model of my glider design to predict flight at different altitudes."
     },
     {
         "filename": "pcb.png",
         "title": "Circuit Board Design",
-        "date": "2024-03-12"
+        "date": "2024-03-12",
+        "description": "4 layers!"
     },
     {
         "filename": "soldering.png",
@@ -185,12 +187,14 @@
     {
         "filename": "3dpwing.png",
         "title": "3D-printed wing",
-        "date": "2024-01-13"
+        "date": "2024-01-13",
+        "description": "I 3D-printed a wing and then laminated it with film to make a lightweight wing for my glider."
     },
     {
         "filename": "ag18.png",
         "title": "Novel Bioplastic Film",
-        "date": "2023-12-11"
+        "date": "2023-12-11",
+        "description": "My 23rd attempt at making bioplastic film. Produced with only two ingredients: seaweed and glycerin using special techniques I developed."
     },
     {
         "filename": "bioplastics.png",
@@ -201,7 +205,8 @@
     {
         "filename": "morebioplastics.png",
         "title": "Freshly made bioplastic samples",
-        "date": "2023-11-15"
+        "date": "2023-11-15",
+        "description": "Made by extracting polymers out of different types of seaweeds."
     },
     {
         "filename": "bioplasticPellets.png",
@@ -221,7 +226,8 @@
     {
         "filename": "firstCraftFair.png",
         "title": "First Craft Fair",
-        "date": "2021-10-16"
+        "date": "2021-10-16",
+        "description": "Started my own business when I was 10 during the COVID-19 lockdown."
     },
     {
         "filename": "roboticArm.png",
@@ -237,7 +243,7 @@
         "filename": "beantown.jpeg",
         "title": "OpenCV resistor classifier",
         "date": "2023-04-01",
-        "description": "Won first place!"
+        "description": "Won first place at the Beantown Bash Hackathon!"
     },
     {
         "filename": "breadboard.png",

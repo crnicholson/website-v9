@@ -95,25 +95,25 @@ export default function PinterestPage() {
                                         height={500}
                                         className="w-full h-auto"
                                     />
-
-                                    {/* {image.description && (
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center p-4">
-                    <p className="text-white text-sm text-center">{image.description}</p>
-                  </div>
-                )} */}
                                 </div>
 
                                 {image.title != "" && (
-                                    <div className="mt-3 flex flex-row items-center justify-between gap-2">
-                                        <h3 className="font-walter text-xs uppercase">{image.title}</h3>
-                                        <p className="text-[11px] opacity-60">
-                                            {new Date(image.date).toLocaleDateString('en-US', {
-                                                year: 'numeric',
-                                                month: 'short',
-                                                day: 'numeric'
-                                            })}
-                                        </p>
-                                    </div>
+                                    <>
+                                        <div className="mt-3 flex flex-row items-center justify-between gap-2">
+                                            <h3 className="font-walter text-xs uppercase">{image.title}</h3>
+                                            <p className="text-[11px] opacity-60">
+                                                {new Date(image.date).toLocaleDateString('en-US', {
+                                                    year: 'numeric',
+                                                    month: 'short',
+                                                    day: 'numeric'
+                                                })}
+                                            </p>
+                                        </div>
+
+                                        {image.description && (
+                                            <p className="text-xs mt-3 opacity-80">{image.description}</p>
+                                        )}
+                                    </>
                                 )}
                             </div>
                         ))}
