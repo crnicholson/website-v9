@@ -51,11 +51,11 @@ export default function PinterestPage() {
       </div> */}
 
             <div className="w-full flex flex-row items-center justify-between mb-12">
-                <div>
-                    <h1 className="font-walter text-2xl text-gray-800">
+                <div className="max-w-1/3">
+                    <h1 className="font-walter text-2xl text-gray-800 mb-1">
                         LEARN MORE ABOUT ME
                     </h1>
-                    <p className="opacity-60">...in an incomplete photobook</p>
+                    <p className="opacity-60 text-sm">...a chronological collection through my journey in making — unfortunately incomplete due to many images being lost to time</p>
                 </div>
                 <div className="flex flex-row gap-3 flex-wrap text-xs opacity-60">
                     <button
