@@ -86,7 +86,7 @@
         "description": "Flexible pneumatic actuator prototype development"
     },
     {
-        "filename": "../projects/softrobotics.png",
+        "filename": "softrobotics.png",
         "title": "Soft Robotics",
         "date": "2023-09-01",
         "description": "Flexible pneumatic actuator prototype development"
@@ -168,7 +168,7 @@
         "date": "2024-03-12"
     },
     {
-        "filename": "../projects/soldering.png",
+        "filename": "soldering.png",
         "title": "Soldering at workbench",
         "date": "2024-03-06"
     },
@@ -234,7 +234,7 @@
         "date": "2024-03-03"
     },
     {
-        "filename": "../projects/beantown.jpeg",
+        "filename": "beantown.jpeg",
         "title": "OpenCV resistor classifier",
         "date": "2023-04-01",
         "description": "Won first place!"
