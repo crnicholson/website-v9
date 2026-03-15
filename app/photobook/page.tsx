@@ -50,28 +50,36 @@ export default function PinterestPage() {
         <Link href="/" className="text-sm hover:text-shadow-none">back</Link>
       </div> */}
 
-            <div className="pb-12 flex flex-row gap-3 flex-wrap text-xs">
-                <button
-                    onClick={() => setSelectedYear(null)}
-                    className={`${selectedYear === null
-                        ? 'underline'
-                        : ''
-                        }`}
-                >
-                    All
-                </button>
-                {years.map(year => (
+            <div className="w-full flex flex-row items-center justify-between mb-12">
+                <div>
+                    <h1 className="font-walter text-2xl text-gray-800">
+                        LEARN MORE ABOUT ME
+                    </h1>
+                    <p className="opacity-60">...in an incomplete photobook</p>
+                </div>
+                <div className="flex flex-row gap-3 flex-wrap text-xs opacity-60">
                     <button
-                        key={year}
-                        onClick={() => setSelectedYear(year)}
-                        className={` ${selectedYear === year
+                        onClick={() => setSelectedYear(null)}
+                        className={`${selectedYear === null
                             ? 'underline'
                             : ''
                             }`}
                     >
-                        {year}
+                        All
                     </button>
-                ))}
+                    {years.map(year => (
+                        <button
+                            key={year}
+                            onClick={() => setSelectedYear(year)}
+                            className={` ${selectedYear === year
+                                ? 'underline'
+                                : ''
+                                }`}
+                        >
+                            {year}
+                        </button>
+                    ))}
+                </div>
             </div>
 
             <div className="flex flex-row gap-10">

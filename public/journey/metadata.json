@@ -2,114 +2,246 @@
     {
         "filename": "arduino.jpeg",
         "title": "",
-        "date": "2023-03-15"
+        "date": "2023-07-15"
     },
     {
         "filename": "balloon.jpeg",
         "title": "Second Balloon Launch",
-        "date": "2023-06-02",
-        "description": "First weather balloon launch reaching 30km altitude"
+        "date": "2024-06-02"
     },
     {
         "filename": "cutdownMechanism.png",
         "title": "Cutdown Mechanism Design",
-        "date": "2023-07-10",
+        "date": "2024-09-18",
         "description": "3D rendered cutdown mechanism for payload recovery systems"
     },
     {
         "filename": "drugs.jpeg",
-        "title": "Carbon capture sorbet synthesis",
-        "date": "2023-08-22",
+        "title": "Carbon capture sorbent synthesis",
+        "date": "2023-06-22",
         "description": "I made a special sorbent material for carbon capture utilizing moisture swing technology"
     },
     {
         "filename": "fusion.png",
         "title": "Fusion Concept",
-        "date": "2023-09-05",
+        "date": "2024-09-05",
         "description": "Research visualization of plasma physics concepts"
     },
     {
         "filename": "glider.png",
-        "title": "Glider Design",
-        "date": "2023-10-12",
-        "description": "CAD model of aerodynamic glider design iteration"
+        "title": "",
+        "date": "2024-10-12"
     },
     {
         "filename": "hamRadioRoof.jpeg",
-        "title": "Ham Radio Setup",
-        "date": "2023-11-08",
-        "description": "Rooftop installation of amateur radio antenna system"
+        "title": "",
+        "date": "2024-05-08"
     },
     {
         "filename": "meWithGlider.jpeg",
         "title": "First Flight",
-        "date": "2023-12-20",
+        "date": "2024-05-20",
         "description": "Successful maiden flight of custom-built glider"
     },
     {
         "filename": "meWithRadioAndTV.jpeg",
-        "title": "Electronics Collection",
-        "date": "2024-01-14",
-        "description": "Vintage radio and electronics setup from personal collection"
+        "title": "",
+        "date": "2024-04-14"
     },
     {
         "filename": "moistureSwing.png",
-        "title": "Moisture Sensor Prototype",
-        "date": "2024-02-28",
-        "description": "Oscillating moisture measurement device design"
+        "title": "Moisture Swing Carbon Capture Diagram",
+        "date": "2023-06-28"
     },
     {
         "filename": "newbs.jpeg",
-        "title": "Team Workshop",
-        "date": "2024-03-17",
-        "description": "Collaborative engineering session with fellow makers"
+        "title": "HamXpo Conference",
+        "date": "2023-08-26"
     },
     {
         "filename": "oldDesk.jpeg",
-        "title": "Workshop Space",
-        "date": "2024-04-09",
+        "title": "",
+        "date": "2023-11-09",
         "description": "Personal maker space and tools setup"
     },
     {
         "filename": "respirator.jpeg",
-        "title": "Safety Equipment",
-        "date": "2024-05-03",
-        "description": "Protective equipment for hazardous work environments"
+        "title": "",
+        "date": "2023-07-03"
     },
     {
         "filename": "scrubber.jpeg",
-        "title": "Air Quality System",
-        "date": "2024-06-11",
-        "description": "Homemade air scrubbing and filtration system"
+        "title": "Early Carbon Capture Prototype",
+        "date": "2023-06-11"
     },
     {
         "filename": "sodaStream.jpeg",
-        "title": "Carbonation Project",
-        "date": "2024-07-22",
-        "description": "Custom beverage carbonation system modification"
+        "title": "Carbon Dioxide Injection System",
+        "date": "2023-07-22"
     },
     {
         "filename": "softRobot.jpeg",
         "title": "Soft Robotics",
-        "date": "2024-08-30",
+        "date": "2023-08-30",
+        "description": "Flexible pneumatic actuator prototype development"
+    },
+    {
+        "filename": "../projects/softrobotics.png",
+        "title": "Soft Robotics",
+        "date": "2023-09-01",
         "description": "Flexible pneumatic actuator prototype development"
     },
     {
         "filename": "stratoSoarMK1.jpeg",
-        "title": "StratoSoar Mark 1",
-        "date": "2024-09-18",
-        "description": "High-altitude research glider first generation"
+        "title": "StratoSoar MK 1",
+        "date": "2024-05-18"
     },
     {
         "filename": "stratoSoarMK2.png",
-        "title": "StratoSoar Mark 2",
-        "date": "2024-10-25",
-        "description": "Advanced iteration with improved aerodynamics and payload capacity"
+        "title": "StratoSoar MK 2",
+        "date": "2024-10-25"
     },
     {
         "filename": "wing.png",
-        "title": "Wing Structure",
-        "date": "2024-11-12",
-        "description": "Composite wing design with aerodynamic analysis"
+        "title": "Testing out custom foam CNC",
+        "date": "2024-11-12"
+    },
+    {
+        "filename": "githubUniverse.png",
+        "title": "GITHUB UNIVERSE",
+        "date": "2024-10-30",
+        "description": "Personally invited by GitHub's COO!"
+    },
+    {
+        "filename": "codingInSchool.png",
+        "title": "",
+        "date": "2025-05-03"
+    },
+    {
+        "filename": "balloonLaunch3.png",
+        "title": "3rd Balloon Launch",
+        "date": "2024-08-13"
+    },
+    {
+        "filename": "stratoSoarPCB.png",
+        "title": "",
+        "date": "06-26-2024"
+    },
+    {
+        "filename": "hollowingOutGlider.png",
+        "title": "",
+        "date": "2024-06-23"
+    },
+    {
+        "filename": "nestDuino.png",
+        "title": "",
+        "date": "2024-06-22"
+    },
+    {
+        "filename": "brokenNose.png",
+        "title": "Failed glider testing",
+        "date": "2024-05-25"
+    },
+    {
+        "filename": "sdr.png",
+        "title": "",
+        "date": "2024-05-20"
+    },
+    {
+        "filename": "foamCNC.png",
+        "title": "DIY CNC machine electronics",
+        "date": "2024-05-19"
+    },
+    {
+        "filename": "hydroponics.png",
+        "title": "Hydroponics Experiment",
+        "date": "2024-04-13"
+    },
+    {
+        "filename": "cfd.png",
+        "title": "Computational Fluid Dynamics Simulation",
+        "date": "2024-04-04"
+    },
+    {
+        "filename": "pcb.png",
+        "title": "Circuit Board Design",
+        "date": "2024-03-12"
+    },
+    {
+        "filename": "../projects/soldering.png",
+        "title": "Soldering at workbench",
+        "date": "2024-03-06"
+    },
+    {
+        "filename": "pcbs.png",
+        "title": "Ten new circuit boards arrived",
+        "date": "2024-03-01"
+    },
+    {
+        "filename": "oldhp.png",
+        "title": "",
+        "date": "2024-02-25"
+    },
+    {
+        "filename": "3dpwing.png",
+        "title": "3D-printed wing",
+        "date": "2024-01-13"
+    },
+    {
+        "filename": "ag18.png",
+        "title": "Novel Bioplastic Film",
+        "date": "2023-12-11"
+    },
+    {
+        "filename": "bioplastics.png",
+        "title": "Bioplastics Science Fair Display",
+        "date": "2023-12-09",
+        "description": "Won first place!"
+    },
+    {
+        "filename": "morebioplastics.png",
+        "title": "Freshly made bioplastic samples",
+        "date": "2023-11-15"
+    },
+    {
+        "filename": "bioplasticPellets.png",
+        "title": "Bioplastic Pellets",
+        "date": "2023-07-07"
+    },
+    {
+        "filename": "finalCraftFair.png",
+        "title": "Woodworking Business at local Fair",
+        "date": "2023-05-21"
+    },
+    {
+        "filename": "spoon.png",
+        "title": "Woodworking Business",
+        "date": "2022-10-15"
+    },
+    {
+        "filename": "firstCraftFair.png",
+        "title": "First Craft Fair",
+        "date": "2021-10-16"
+    },
+    {
+        "filename": "roboticArm.png",
+        "title": "Robotic Arm with Inverse Kinematics",
+        "date": "2022-12-31"
+    },
+    {
+        "filename": "stencil.png",
+        "title": "Laser cut solder paste stencil",
+        "date": "2024-03-03"
+    },
+    {
+        "filename": "../projects/beantown.jpeg",
+        "title": "OpenCV resistor classifier",
+        "date": "2023-04-01",
+        "description": "Won first place!"
+    },
+    {
+        "filename": "breadboard.png",
+        "title": "Breadboard Circuit Prototyping",
+        "date": "2024-10-26"
     }
 ]

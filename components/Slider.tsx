@@ -238,7 +238,7 @@ export default function Slider({ onAboutClick, onSocialsClick }: { onAboutClick:
                                 onClick={(e) => project.type !== 'menu' && handleProjectClick(project, e)}
                             >
                                 {project.type === 'menu' ? (
-                                    <div className="w-full h-full bg-white p-6 min-w-sm z-50 font-walter text-xl">
+                                    <div className="w-full h-full bg-white p-6 min-w-sm max-w-md z-50 font-walter text-xl">
                                         <h1 className="text-2xl mb-4">TABLE OF CONTENTS</h1>
                                         <div className="flex flex-col gap-2">
                                             {/* <div className="flex flex-row justify-between items-center w-full h-fit">
@@ -246,15 +246,19 @@ export default function Slider({ onAboutClick, onSocialsClick }: { onAboutClick:
                                                 <h1>→</h1>
                                             </div> */}
                                             <div className="flex flex-row justify-between items-center w-full h-fit">
-                                                <a onClick={onAboutClick}>1. ABOUT</a>
+                                                <a href="/photobook">1. MORE PROJECTS + VISUAL JOURNEY THROUGH MY MAKING</a>
                                                 <h1>→</h1>
                                             </div>
                                             <div className="flex flex-row justify-between items-center w-full h-fit">
-                                                <a href="/cv">2. EXPERIENCES + SKILLS</a>
+                                                <a onClick={onAboutClick}>2. ABOUT</a>
                                                 <h1>→</h1>
                                             </div>
                                             <div className="flex flex-row justify-between items-center w-full h-fit">
-                                                <a onClick={onSocialsClick}>3. SOCIALS</a>
+                                                <a href="/cv">3. EXPERIENCES + SKILLS</a>
+                                                <h1>→</h1>
+                                            </div>
+                                            <div className="flex flex-row justify-between items-center w-full h-fit">
+                                                <a onClick={onSocialsClick}>4. SOCIALS</a>
                                                 <h1>→</h1>
                                             </div>
                                         </div>
