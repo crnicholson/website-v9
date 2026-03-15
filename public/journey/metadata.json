@@ -92,12 +92,12 @@
     },
     {
         "filename": "stratoSoarMK1.jpeg",
-        "title": "StratoSoar MK 1",
+        "title": "StratoSoar MK1",
         "date": "2023-06-18"
     },
     {
         "filename": "stratoSoarMK2.png",
-        "title": "StratoSoar MK 2",
+        "title": "StratoSoar MK2",
         "date": "2024-10-25"
     },
     {
@@ -249,5 +249,47 @@
         "filename": "breadboard.png",
         "title": "Breadboard Circuit Prototyping",
         "date": "2024-10-26"
+    },
+    {
+        "filename": "internship.png",
+        "title": "Internship at Hack Club",
+        "date": "2025-07-06",
+        "description": "I worked on making two programs: one that gave access to eletromyography electroncs (equiptment to reads nerve signals) to high schoolers, and another that taught teenagers how to makke custom semiconductors."
+    },
+    {
+        "filename": "prototype.gif",
+        "title": "PROTOTYPE HACKathon",
+        "date": "2025-12-22",
+        "description": "My team and I worked on making a robotic arm with a series of conveyor belts and hoppers to sort electronic components into different bins."
+    },
+    {
+        "filename": "emg.jpeg",
+        "title": "Reading nervous signals",
+        "date": "2025-07-16",
+        "description": "I developed a circuit to read the minute electrical activity conducted by nerves and translated it into signals usable by robotic attatchments."
+    },
+    {
+        "filename": "apex.png",
+        "title": "Apex Hackathon",
+        "date": "2025-06-20",
+        "description": "I was a lead organizer for this hackathon, where we brought students from four different countries together to launch their projects to near space."
+    },
+    {
+        "filename": "captiolAPI.png",
+        "title": "Capitol API",
+        "date": "2026-02-22",
+        "description": "A web platform and custom API for accessing trades within Congress members and then determining the possibilty of insider trading."
+    },
+    {
+        "filename": "abg.png",
+        "title": "Image Editor",
+        "date": "2026-01-02",
+        "description": "I played around with making a simple image editor."
+    },
+    {
+        "filename": "v3.png",
+        "title": "V3 WEBSItE",
+        "date": "2026-11-02",
+        "description": "I decided to redesign my old website but with a focus on making something people can actually experience to learn more about me. It conveyed vibes about me, but not facts, so thus started a multi-month long journey to develop my next website."
     }
 ]
