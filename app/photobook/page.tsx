@@ -124,6 +124,7 @@ export default function PinterestPage() {
         <span className="text-xs text-gray-600">{filteredImages.length} images</span>
         <Link href="/" className="text-xs">charlie</Link>
       </div> */}
+            <div className="w-full flex items-center justify-center mt-12 opacity-60 text-sm"><p>Done? Go back{" "}<a href="/" className="underline">home</a>.</p></div>
         </div>
     )
 }

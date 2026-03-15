@@ -275,7 +275,7 @@
         "description": "I was a lead organizer for this hackathon, where we brought students from four different countries together to launch their projects to near space."
     },
     {
-        "filename": "captiolAPI.png",
+        "filename": "capitolAPI.png",
         "title": "Capitol API",
         "date": "2026-02-22",
         "description": "A web platform and custom API for accessing trades within Congress members and then determining the possibilty of insider trading."
