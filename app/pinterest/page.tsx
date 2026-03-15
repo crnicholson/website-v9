@@ -95,16 +95,18 @@ export default function PinterestPage() {
                 )} */}
                                 </div>
 
-                                <div className="mt-3 flex flex-row items-center justify-between gap-2">
-                                    <h3 className="font-walter text-xs uppercase">{image.title}</h3>
-                                    <p className="text-[11px] opacity-60">
-                                        {new Date(image.date).toLocaleDateString('en-US', {
-                                            year: 'numeric',
-                                            month: 'short',
-                                            day: 'numeric'
-                                        })}
-                                    </p>
-                                </div>
+                                {image.title != "" && (
+                                    <div className="mt-3 flex flex-row items-center justify-between gap-2">
+                                        <h3 className="font-walter text-xs uppercase">{image.title}</h3>
+                                        <p className="text-[11px] opacity-60">
+                                            {new Date(image.date).toLocaleDateString('en-US', {
+                                                year: 'numeric',
+                                                month: 'short',
+                                                day: 'numeric'
+                                            })}
+                                        </p>
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>

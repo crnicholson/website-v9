@@ -1,13 +1,12 @@
 [
     {
         "filename": "arduino.jpeg",
-        "title": "Arduino Prototype",
-        "date": "2023-03-15",
-        "description": "Early Arduino microcontroller setup for experimental sensor testing"
+        "title": "",
+        "date": "2023-03-15"
     },
     {
         "filename": "balloon.jpeg",
-        "title": "High Altitude Balloon",
+        "title": "Second Balloon Launch",
         "date": "2023-06-02",
         "description": "First weather balloon launch reaching 30km altitude"
     },
@@ -19,9 +18,9 @@
     },
     {
         "filename": "drugs.jpeg",
-        "title": "Chemistry Experiment",
+        "title": "Carbon capture sorbet synthesis",
         "date": "2023-08-22",
-        "description": "Crystal formation during chemical synthesis process"
+        "description": "I made a special sorbent material for carbon capture utilizing moisture swing technology"
     },
     {
         "filename": "fusion.png",
