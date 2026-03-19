@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import { useIsMobile } from "@/hooks/useIsMobile"
 
 export default function CustomCursor() {
     const [position, setPosition] = useState({ x: -100, y: -100 });
     const [isVisible, setIsVisible] = useState(false);
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -31,7 +33,7 @@ export default function CustomCursor() {
         };
     }, []);
 
-    return (
+    return !isMobile && (
         <div
             className="custom-cursor"
             style={{

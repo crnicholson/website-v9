@@ -12,26 +12,6 @@ interface Project {
     link?: string;
 }
 
-const PROJECTS: Project[] = [
-    { id: 'menu', type: 'menu' },
-    { id: 1, image: '/projects/bioplastic.avif', name: 'SEAWEED BIOPLASTIC', about: 'During summer 2023, I created custom bioplastics from seaweed and made a detailed journal of all my experiments.', link: 'https://nicholsonlabs.gitbook.io/labs/bioplastic' },
-    { id: 5, image: '/projects/stratoSoarMK2.png', name: 'STRATOSOAR', about: 'This is my main and largest project, taking place over the course of 3 and a half years. StratoSoar is a low-cost, lightweight UAV designed for deployment from weather balloons. It flies autonomously to GPS coordinates, providing an affordable alternative to conventional UAVs for educators, researchers, and hobbyists.', link: 'https://github.com/crnicholson/StratoSoar-MK3' },
-    // { id: 6, image: '/projects/hamClub.png', title: '' },
-    { id: 4, image: '/projects/carbon.jpeg', name: 'DIY CARBON CAPTURE', about: 'I developed one of the first at-home implementations of carbon capture technology using readily available materials, then made a complete guide to make your own.', link: 'https://nicholsonlabs.gitbook.io/labs/carbon-capture' },
-    { id: 7, image: '/projects/outfits.png', name: 'OUTFIT GENERATOR', about: 'I often find it annoying to create an outfit before school, so I made a tool that lets me view my wardrobe and randomize outfits.', link: 'https://outfits.crnicholson.com' },
-    { id: 12, image: '/projects/woodworks.jpeg', name: 'WOODWORKING BUSINESS', about: 'For three years, I developed my own woodworking business, selling handmade and carved crafts. I profited over $2000 and opened an Etsy store before closing it to focus on other projects.', link: 'https://cochituatewoodworks.wixsite.com/website-2' },
-    // { id: 8, image: '/projects/fonts.png', name: 'FONTS', about: 'Finding display fonts is hard, so I made a collection for mainly my personal use.', link: 'https://fonts.crnicholson.com' },
-    // { id: 3, image: '/projects/beantown.jpeg', name: 'CV RESISTOR DETECTOR', about: 'This won first place at the 2023 Beantown Bash Hackathon. It uses OpenCV to categorize the colors of the bands on a resistor to determine the value of it.', link: 'https://github.com/mpkendall/resistorfinder' },
-    { id: 2, image: '/projects/apex.png', name: 'APEX', about: 'I was a lead organizer for Apex, a 3-month-long hackathon culminating in a launch of 15 student projects into near space on a high-altitude weather balloon. We managed to raise over $15,000 and allowed novel hardware projects to be launched.', link: 'https://apex.hackclub.com' },
-    { id: 9, image: '/projects/hackfinger.gif', name: 'NERVE CONTROLLED FINGER', about: 'I developed a custom circuit for processing nerve signals along with a custom finger to display the signals.' },
-    { id: 10, image: '/projects/v3.png', name: 'V3 WEBSITE', about: `I'm passionate that the web is becoming an increasingly mundane and boring world where we have to learn about people through text on a screen. As an auxillary personal website, I developed a website that allows people to experience who I really am.`, link: 'https://v3.crnicholson.com' },
-    { id: 13, image: '/projects/softrobotics.png', name: 'SOFT ROBOTICS', about: `I designed a series of novel silicone-based soft robotic grippers.` },
-    { id: 14, image: '/projects/foldingglider.png', name: 'FOLDING GLIDER', about: `I designed a glider laser cut from one flat peice of cardboard to fold into a flying wing shape with correct airfoil geometry. I also designed a parametric design software that calculated all the parameters for the laser cutter based on the weight and cardboard density.` },
-    { id: 15, image: '/projects/soldering.png', name: 'SOLDERING STATION', about: `I designed an 8-foot long fully-custom soldering and electronics workbench right next to my bed!` },
-    // { id: 11, image: '/projects/littleLora.png', title: '' },
-];
-
-
 const IMAGE_GAP = 200;
 const SCROLL_SPEED = -3;
 const IMAGE_WIDTH = 400; // doesn't really matter
@@ -39,7 +19,7 @@ const IMAGE_HEIGHT = 500;
 const BACKGROUND_SVG_SCROLL_SPEED = -1.5;
 const BACKGROUND_TEXT_SCROLL_SPEED = -0.9;
 
-export default function Slider({ onAboutClick, onSocialsClick }: { onAboutClick: () => void; onSocialsClick: () => void }) {
+export default function Slider({ projects, onAboutClick, onSocialsClick }: { projects: Project[]; onAboutClick: () => void; onSocialsClick: () => void }) {
     const sliderRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const backgroundSvgRef = useRef<HTMLDivElement>(null);
@@ -53,7 +33,7 @@ export default function Slider({ onAboutClick, onSocialsClick }: { onAboutClick:
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [hasDragged, setHasDragged] = useState(false);
 
-    const multipliedProjects = Array(20).fill(PROJECTS).flat();
+    const multipliedProjects = Array(20).fill(projects).flat();
 
     useEffect(() => {
         const img = new window.Image();
@@ -122,7 +102,7 @@ export default function Slider({ onAboutClick, onSocialsClick }: { onAboutClick:
         const animate = () => {
             if (!trackRef.current) return;
 
-            const singleSetWidth = PROJECTS.length * (IMAGE_WIDTH + IMAGE_GAP);
+            const singleSetWidth = projects.length * (IMAGE_WIDTH + IMAGE_GAP);
 
             let normalizedPosition = position % singleSetWidth;
             if (normalizedPosition < 0) {

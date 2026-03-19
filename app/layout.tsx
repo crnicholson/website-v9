@@ -56,7 +56,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${newEdge.variable} ${walter.variable} ${ibm.variable} ${geist.variable} ${marola.variable} ${resolution.variable} antialiased font-geist cursor-none`}
-        // style={{ textShadow: "1px 0 #f3ff00, 0px -1px #f3ff00, -1px 0 #f3ff00, 0 1px #f3ff00" }}
+      // style={{ textShadow: "1px 0 #f3ff00, 0px -1px #f3ff00, -1px 0 #f3ff00, 0 1px #f3ff00" }}
       >
         {children}
         <CustomCursor />
