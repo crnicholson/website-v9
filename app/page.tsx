@@ -95,7 +95,7 @@ export default function Home() {
             <h1 className="mb-4">table of contents</h1>
             <a onClick={() => setAboutOpen(!aboutOpen)}>1. about</a>
             <h1>2. projects</h1>
-            <h1>3. experiences + skills</h1>
+            <a href="/cv">3. experiences + skills</a>
             <h1>4. socials</h1>
           </div>
         </div>
