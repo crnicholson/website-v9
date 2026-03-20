@@ -33,7 +33,7 @@ const PROJECTS: Project[] = [
   { id: 10, image: '/projects/v3.png', name: 'V3 WEBSITE', about: `I'm passionate that the web is becoming an increasingly mundane and boring world where we have to learn about people through text on a screen. As an auxillary personal website, I developed a website that allows people to experience who I really am.`, link: 'https://v3.crnicholson.com' },
   { id: 13, image: '/projects/softrobotics.png', name: 'SOFT ROBOTICS', about: `I designed a series of novel silicone-based soft robotic grippers.` },
   { id: 14, image: '/projects/foldingglider.png', name: 'FOLDING GLIDER', about: `I designed a glider laser cut from one flat peice of cardboard to fold into a flying wing shape with correct airfoil geometry. I also designed a parametric design software that calculated all the parameters for the laser cutter based on the weight and cardboard density.` },
-  { id: 15, image: '/projects/soldering.png', name: 'SOLDERING STATION', about: `I designed an 8-foot long fully-custom soldering and electronics workbench right next to my bed!` },
+  // { id: 15, image: '/projects/soldering.png', name: 'SOLDERING STATION', about: `I designed an 8-foot long fully-custom soldering and electronics workbench right next to my bed!` },
   // { id: 11, image: '/projects/littleLora.png', title: '' },
 ];
 
@@ -46,8 +46,8 @@ export default function Home() {
   if (isMobile) {
     return (
       <div
-        className="absolute min-h-screen bg-gray-50 flex justify-start items-end p-10 w-screen invert"
-        style={{ textShadow: "1px 0 #f3ff00, 0px -1px #f3ff00, -1px 0 #f3ff00, 0 1px #f3ff00" }}
+        className="absolute min-h-screen bg-gray-50 flex flex-col justify-between p-10 w-screen "
+        // style={{ textShadow: "1px 0 #f3ff00, 0px -1px #f3ff00, -1px 0 #f3ff00, 0 1px #f3ff00" }}
       >
         <MobileAboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
 
@@ -75,18 +75,21 @@ export default function Home() {
 
         <div className="fixed inset-0 w-screen h-screen pointer-events-none z-0">
           <div
-            className="absolute inset-0 w-full h-full bg-[url('/face.svg')] bg-no-repeat bg-bottom opacity-10"
+            className="absolute inset-0 w-full h-full bg-[url('/face.svg')] bg-no-repeat bg-top opacity-10"
           />
         </div>
+        <p className="mb-10 font-walter uppercase text-lg">charlie nicholson</p>
+
 
         <div className="z-10">
-          <Image
+          {/* <Image
             src="/me.jpg"
             alt="me"
             width={200}
             height={200}
             className="mb-10 invert"
-          />
+          /> */}
+
 
           <div className="font-walter uppercase text-3xl flex flex-col gap-3">
             <h1 className="mb-4">table of contents</h1>
