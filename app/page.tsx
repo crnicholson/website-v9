@@ -4,7 +4,6 @@ import Link from "next/link"
 import { useState } from "react"
 import Image from "next/image"
 
-import Slider from '@/components/Slider'
 import MobileProjectCard from "@/components/MobileProjectCard"
 import MobileAboutModal from "@/components/MobileAboutModal"
 import { useIsMobile } from "@/hooks/useIsMobile"
@@ -104,26 +103,118 @@ export default function Home() {
     );
   }
 
+  const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleProjectMouseEnter = (project: Project, e: React.MouseEvent) => {
+    if (project.about || project.link) {
+      setHoveredProject(project);
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    }
+  };
+
+  const handleProjectMouseMove = (e: React.MouseEvent) => {
+    if (hoveredProject) {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    }
+  };
+
+  const handleProjectMouseLeave = () => {
+    setHoveredProject(null);
+  };
+
   return (
     <>
-      <div className="w-full h-screen flex items-center justify-center relative bg-gray-50">
-        <Slider projects={PROJECTS} onAboutClick={() => setAboutOpen(!aboutOpen)} onSocialsClick={() => setSocialsOpen(!socialsOpen)} />
-      </div>
+      <div className="relative min-h-screen bg-gray-50">
+        <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
+          <div className="absolute inset-0 w-full h-full bg-[url('/face.svg')] bg-no-repeat bg-center bg-contain opacity-5" />
+        </div>
 
-      <div className="pointer-events-none absolute inset-0 z-10 shadow-[inset_60px_0_200px_rgba(255,255,255,1),inset_-60px_0_200px_rgba(255,255,255,1)]" />
-
-      <div className="absolute inset-0 z-20 h-screen w-full flex flex-col items-center justify-between pointer-events-none text-sm">
-        <div className="flex flex-row items-center justify-between h-fit w-full px-8 py-6 pointer-events-auto">
-          <h1 className="">charlie</h1>
+        <div className="sticky top-0 z-20 flex flex-row items-center justify-between w-full px-8 py-6 text-sm">
+          <h1>charlie</h1>
           <span>
-            <span onClick={() => setAboutOpen(!aboutOpen)}>about</span>{" "}|{" "}<Link className="cursor-none" href="/cv">experiences + skills</Link>
+            <span className="cursor-pointer" onClick={() => setAboutOpen(!aboutOpen)}>about</span>{" "}|{" "}<Link href="/cv">experiences + skills</Link>
           </span>
         </div>
-        <div className="flex flex-row items-center justify-between h-fit w-full px-8 py-6 pointer-events-auto">
-          <h1 className="hover:text-shadow-none" onClick={() => setSettingsOpen(!settingsOpen)}>settings</h1>
-          <Link href="https://www.instagram.com/charliennnicholson/" className="hover:text-shadow-none ">@charliennnicholson</Link>
+
+        <div className="relative z-10 grid grid-cols-2 lg:grid-cols-3 gap-30 p-30">
+          {PROJECTS.map((project) => (
+            project.type === 'menu' ? (
+              <div key={project.id} className="w-full h-full bg-white p-6 min-w-sm max-w-md z-50 font-walter text-xl">
+                <h1 className="text-2xl mb-4">TABLE OF CONTENTS</h1>
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-row justify-between items-center w-full h-fit">
+                    <a href="/photobook">1. MORE PROJECTS + VISUAL JOURNEY THROUGH MY MAKING</a>
+                    <h1>→</h1>
+                  </div>
+                  <div className="flex flex-row justify-between items-center w-full h-fit">
+                    <a className="cursor-pointer" onClick={() => setAboutOpen(!aboutOpen)}>2. ABOUT</a>
+                    <h1>→</h1>
+                  </div>
+                  <div className="flex flex-row justify-between items-center w-full h-fit">
+                    <a href="/cv">3. EXPERIENCES + SKILLS</a>
+                    <h1>→</h1>
+                  </div>
+                  <div className="flex flex-row justify-between items-center w-full h-fit">
+                    <a className="cursor-pointer" onClick={() => setSocialsOpen(!socialsOpen)}>4. SOCIALS</a>
+                    <h1>→</h1>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <a
+                key={project.id}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block overflow-hidden w-fit"
+                onMouseEnter={(e) => handleProjectMouseEnter(project, e)}
+                onMouseMove={handleProjectMouseMove}
+                onMouseLeave={handleProjectMouseLeave}
+              >
+                <div className="flex flex-row justify-between items-center w-full font-walter text-shadow-none mb-1">
+                  <h1 className="text-xs">{project.name}</h1>
+                  <h1 className="text-xs">→</h1>
+                </div>
+                {project.image && (
+                  <Image
+                    src={project.image}
+                    alt={project.name || 'Project'}
+                    width={600}
+                    height={400}
+                    className="h-100 w-auto"
+                  />
+                )}
+              </a>
+            )
+          ))}
+        </div>
+
+        <div className="sticky bottom-0 z-20 flex flex-row items-center justify-between w-full px-8 py-6 text-sm">
+          <h1 className="hover:text-shadow-none cursor-pointer" onClick={() => setSettingsOpen(!settingsOpen)}>settings</h1>
+          <Link href="https://www.instagram.com/charliennnicholson/" className="hover:text-shadow-none">@charliennnicholson</Link>
         </div>
       </div>
+
+      {hoveredProject && (hoveredProject.about || hoveredProject.link) && (
+        <div
+          className="fixed z-50 pointer-events-none"
+          style={{
+            left: `${mousePosition.x + 20}px`,
+            top: `${mousePosition.y + 20}px`,
+          }}
+        >
+          <div className="bg-white border border-black shadow-lg p-4 max-w-sm text-shadow-none">
+            <h2 className="font-walter text-xs mb-2">{hoveredProject.name}</h2>
+            {hoveredProject.about && (
+              <p className="text-xs leading-relaxed">{hoveredProject.about}</p>
+            )}
+            {hoveredProject.link && (
+              <p className="text-xs mt-2 opacity-60">(click anywhere to view project)</p>
+            )}
+          </div>
+        </div>
+      )}
 
       {aboutOpen && (
         <div className="inset-0 absolute z-30 h-screen flex items-center justify-center p-8 bg-black/30">
