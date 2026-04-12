@@ -26,7 +26,7 @@ const PROJECTS: Project[] = [
   { id: 16, image: '/projects/capitol-api.png', name: 'CAPITOL API', about: 'The first ever free, open source, and self-hostable API for accessing trades by Congress members.', link: 'https://github.com/crnicholson/capitol-api' },
   { id: 12, image: '/projects/woodworks.jpeg', name: 'WOODWORKING BUSINESS', about: 'For three years, I developed my own woodworking business, selling handmade and carved crafts. I profited over $2000 and opened an Etsy store before closing it to focus on other projects.', link: 'https://cochituatewoodworks.wixsite.com/website-2' },
   // { id: 8, image: '/projects/fonts.png', name: 'FONTS', about: 'Finding display fonts is hard, so I made a collection for mainly my personal use.', link: 'https://fonts.crnicholson.com' },
-  // { id: 3, image: '/projects/beantown.jpeg', name: 'CV RESISTOR DETECTOR', about: 'This won first place at the 2023 Beantown Bash Hackathon. It uses OpenCV to categorize the colors of the bands on a resistor to determine the value of it.', link: 'https://github.com/mpkendall/resistorfinder' },
+  { id: 3, image: '/projects/beantown.jpeg', name: 'CV RESISTOR DETECTOR', about: 'This won first place at the 2023 Beantown Bash Hackathon. It uses OpenCV to categorize the colors of the bands on a resistor to determine the value of it.', link: 'https://github.com/mpkendall/resistorfinder' },
   { id: 2, image: '/projects/apex.png', name: 'APEX', about: 'I was a lead organizer for Apex, a 3-month-long hackathon culminating in a launch of 15 student projects into near space on a high-altitude weather balloon. We managed to raise over $15,000 and allowed novel hardware projects to be launched.', link: 'https://apex.hackclub.com' },
   { id: 9, image: '/projects/hackfinger.gif', name: 'NERVE CONTROLLED FINGER', about: 'I developed a custom circuit for processing nerve signals along with a custom finger to display the signals.' },
   { id: 7, image: '/projects/outfits.png', name: 'OUTFIT GENERATOR', about: 'I often find it annoying to create an outfit before school, so I made a tool that lets me view my wardrobe and randomize outfits.', link: 'https://outfits.crnicholson.com' },
@@ -137,11 +137,11 @@ export default function Home() {
           </span>
         </div>
 
-        <div className="relative z-10 grid grid-cols-2 lg:grid-cols-3 gap-30 p-30">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 lg:gap-16 2xl:gap-30 p-8 lg:p-16 2xl:p-30">
           {PROJECTS.map((project) => (
             project.type === 'menu' ? (
-              <div key={project.id} className="w-full h-full bg-white p-6 min-w-sm max-w-md z-50 font-walter text-xl">
-                <h1 className="text-2xl mb-4">TABLE OF CONTENTS</h1>
+              <div key={project.id} className="w-full h-full bg-white p-6 font-walter text-base lg:text-xl">
+                <h1 className="text-xl lg:text-2xl mb-4">TABLE OF CONTENTS</h1>
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-row justify-between items-center w-full h-fit">
                     <a href="/photobook">1. MORE PROJECTS + VISUAL JOURNEY THROUGH MY MAKING</a>
@@ -182,7 +182,7 @@ export default function Home() {
                     alt={project.name || 'Project'}
                     width={600}
                     height={400}
-                    className="h-100 w-auto"
+                    className="w-auto h-100 object-cover"
                   />
                 )}
               </a>
