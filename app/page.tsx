@@ -132,9 +132,13 @@ export default function Home() {
 
         <div className="sticky top-0 z-20 flex flex-row items-center justify-between w-full px-8 py-6 text-sm">
           <h1>charlie</h1>
-          <span>
-            <span className="cursor-pointer" onClick={() => setAboutOpen(!aboutOpen)}>about</span>{" "}|{" "}<Link href="/cv">experiences + skills</Link>
-          </span>
+          <div className="flex items-center justify-center gap-2">
+            <p className="cursor-pointer" onClick={() => setAboutOpen(!aboutOpen)}>about</p>
+            <span>|</span>
+            <Link href="/cv">experiences + skills</Link>
+            <span>|</span>
+            <Link href="/photobook">photobook</Link>
+          </div>
         </div>
 
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 lg:gap-16 2xl:gap-30 p-8 lg:p-16 2xl:p-30">
@@ -155,10 +159,10 @@ export default function Home() {
                     <a href="/cv">3. EXPERIENCES + SKILLS</a>
                     <h1>→</h1>
                   </div>
-                  <div className="flex flex-row justify-between items-center w-full h-fit">
+                  {/* <div className="flex flex-row justify-between items-center w-full h-fit">
                     <a className="cursor-pointer" onClick={() => setSocialsOpen(!socialsOpen)}>4. SOCIALS</a>
                     <h1>→</h1>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ) : (
@@ -190,10 +194,12 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="sticky bottom-0 z-20 flex flex-row items-center justify-between w-full px-8 py-6 text-sm">
+        {/* <div className="sticky bottom-0 z-20 flex flex-row items-center justify-between w-full px-8 py-6 text-sm">
           <h1 className="hover:text-shadow-none cursor-pointer" onClick={() => setSettingsOpen(!settingsOpen)}>settings</h1>
+          <div>
+          </div>
           <Link href="https://www.instagram.com/charliennnicholson/" className="hover:text-shadow-none">@charliennnicholson</Link>
-        </div>
+        </div> */}
       </div>
 
       {hoveredProject && (hoveredProject.about || hoveredProject.link) && (
@@ -241,11 +247,11 @@ export default function Home() {
             <p className="mb-4">Typically I do software, electrical, and mechanical engineering, but I also dabble in different areas of design (web, graphic, fashion), although I'm not very good at it :).</p>
             <p className="mb-4">If I'm not creating something, you can probably find me listening to <Link className="underline" href="https://open.spotify.com/user/31ybjmvbe7siydivevnk37vditjq?si=a79d39522b4747f3">music</Link>, biking, or enjoying nature.</p>
             <p className="mb-4">Find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">GitHub</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">LinkedIn</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">Instagram</Link>.</p>
-            <p className="mb-4">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this summer. I am looking for internship opportunities this summer, 2026! Please reach out to me if you have any leads.</p>
+            <p className="mb-4">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this summer. I am looking for internship opportunities this summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
 
             <div className="flex flex-row items-center w-full h-fit gap-10">
               <Image
-                src="/me.jpg"
+                src="/second-me.png"
                 alt="Charlie Nicholson"
                 width={200}
                 height={200}

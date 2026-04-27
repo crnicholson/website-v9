@@ -6,7 +6,9 @@ export default function CV() {
     return (
         <div className="bg-gray-50 w-full min-h-screen flex items-center justify-center pt-10 px-10 sm:pt-20 sm:px-20">
             <div className="sm:w-2/3">
-                <Link href="/" className="text-gray-700 underline mb-10 text-sm block">← Back to Home</Link>
+                <Link href="/" className="text-gray-700 underline mb-8 text-sm block">← Back to Home</Link>
+
+                <p className="text-gray-700 mb-10 text-sm">(Note: If you are interested in seeing a complete resume of my experiences, <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">please contact me</Link>.)</p>
 
                 <h1 className="text-2xl mb-5">Experiences</h1>
                 <div className="flex flex-col gap-2 mb-8">
