@@ -131,7 +131,7 @@ export default function Home() {
 
         <div className="sticky top-0 z-20 flex flex-row items-center justify-between w-full px-8 py-6 text-sm"
           style={{ textShadow: "1px 0 #ffffff, 0px -1px #fff, -1px 0 #fff, 0 1px #fff" }}
->
+        >
           <h1>charlie</h1>
           <div
             className="flex items-center justify-center gap-2"
