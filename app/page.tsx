@@ -96,7 +96,6 @@ export default function Home() {
             <a onClick={() => setAboutOpen(!aboutOpen)}>1. about</a>
             <h1>2. projects</h1>
             <a href="/cv">3. experiences + skills</a>
-            <h1>4. socials</h1>
           </div>
         </div>
       </div>
@@ -130,9 +129,13 @@ export default function Home() {
           <div className="absolute inset-0 w-full h-full bg-[url('/face.svg')] bg-no-repeat bg-center bg-contain opacity-5" />
         </div>
 
-        <div className="sticky top-0 z-20 flex flex-row items-center justify-between w-full px-8 py-6 text-sm">
+        <div className="sticky top-0 z-20 flex flex-row items-center justify-between w-full px-8 py-6 text-sm"
+          style={{ textShadow: "1px 0 #ffffff, 0px -1px #fff, -1px 0 #fff, 0 1px #fff" }}
+>
           <h1>charlie</h1>
-          <div className="flex items-center justify-center gap-2">
+          <div
+            className="flex items-center justify-center gap-2"
+          >
             <p className="cursor-pointer" onClick={() => setAboutOpen(!aboutOpen)}>about</p>
             <span>|</span>
             <Link href="/cv">experiences + skills</Link>
@@ -223,8 +226,14 @@ export default function Home() {
       )}
 
       {aboutOpen && (
-        <div className="inset-0 absolute z-30 h-screen flex items-center justify-center p-8 bg-black/30">
-          <div className="max-w-2xl bg-gray-50 text-shadow-none p-6 border">
+        <div
+          className="fixed inset-0 z-30 flex items-center justify-center p-8 bg-black/30"
+          onClick={() => setAboutOpen(false)}
+        >
+          <div
+            className="max-w-2xl bg-gray-50 text-shadow-none p-6 border"
+            onClick={(event) => event.stopPropagation()}
+          >
             <div className="flex flex-row justify-between items-center w-full h-fit mb-4">
               <h1 className="text-sm font-walter">ABOUT</h1>
               <svg
