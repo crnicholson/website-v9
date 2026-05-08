@@ -4,8 +4,6 @@ import Link from "next/link"
 import { useState } from "react"
 import Image from "next/image"
 
-import MobileProjectCard from "@/components/MobileProjectCard"
-import MobileAboutModal from "@/components/MobileAboutModal"
 import { useIsMobile } from "@/hooks/useIsMobile"
 
 interface Project {
@@ -40,70 +38,49 @@ const PROJECTS: Project[] = [
 export default function Home() {
   const isMobile = useIsMobile();
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [socialsOpen, setSocialsOpen] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // const [socialsOpen, setSocialsOpen] = useState(false);
+  // const [settingsOpen, setSettingsOpen] = useState(false);
 
   if (isMobile) {
     return (
       <div
-        className="absolute min-h-screen bg-gray-50 flex flex-col justify-between p-10 w-screen "
+        className="absolute min-h-screen bg-gray-50 flex items-center justify-between p-10 w-screen"
       // style={{ textShadow: "1px 0 #f3ff00, 0px -1px #f3ff00, -1px 0 #f3ff00, 0 1px #f3ff00" }}
       >
-        <MobileAboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
-
-        {/* <div className="p-8">
-          <h1 className="text-xl font-walter mb-5 mt-10">HI, I'M CHARLIE</h1>
-
-          <div className="flex flex-wrap gap-2 mb-8">
-            <Link href="/cv" className="text-xs bg-gray-900 text-white px-3 py-2 rounded hover:bg-gray-800">
-              Experiences
-            </Link>
-            <Link href="mailto:charlienicholsonr@gmail.com" className="text-xs border px-3 py-2 rounded hover:bg-gray-100">
-              Email me
-            </Link>
-          </div>
-
-          <div className="mb-4">
-            <h2 className="font-walter text-sm mb-4">projects</h2>
-            <div className="grid grid-cols-1 gap-4">
-              {PROJECTS.map((project) => (
-                <MobileProjectCard key={project.id} {...project} />
-              ))}
-            </div>
-          </div>
-        </div> */}
-
-        <div className="fixed inset-0 w-screen h-screen pointer-events-none z-0">
+        {/* <div className="fixed inset-0 w-screen h-screen pointer-events-none z-0">
           <div
             className="absolute inset-0 w-full h-full bg-[url('/face.svg')] bg-no-repeat bg-top opacity-10"
           />
         </div>
-        <p className="mb-10 font-walter uppercase text-lg">charlie nicholson</p>
-
+        <p className="mb-10 font-walter uppercase text-lg">charlie nicholson</p> */}
 
         <div className="z-10">
-          {/* <Image
-            src="/me.jpg"
+          <Image
+            src="/second-me.png"
             alt="me"
             width={200}
             height={200}
-            className="mb-10 invert"
-          /> */}
+            className="mb-6"
+          />
+          <p className="mb-6 text-gray-600 text-sm">(Note: to see my projects and more about me, please access this website on a larger screen.)</p>
+          <p className="mb-4">Hi, I'm Charlie. I am 15-year-old who likes to create through many different mediums.</p>
+          <p className="mb-4">Typically I do software, electrical, and mechanical engineering, but I also dabble in different areas of design (web, graphic, fashion), although I'm not very good at it :).</p>
+          <p className="mb-4">If I'm not creating something, you can probably find me listening to <Link className="underline" href="https://open.spotify.com/user/31ybjmvbe7siydivevnk37vditjq?si=a79d39522b4747f3">music</Link>, biking, or enjoying nature.</p>
+          <p className="mb-4">Find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">GitHub</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">LinkedIn</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">Instagram</Link>.</p>
+          <p className="">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this summer. I am looking for internship opportunities this summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
 
-
-          <div className="font-walter uppercase text-3xl flex flex-col gap-3">
+          {/* <div className="font-walter uppercase text-3xl flex flex-col gap-3">
             <h1 className="mb-4">table of contents</h1>
             <a onClick={() => setAboutOpen(!aboutOpen)}>1. about</a>
             <h1>2. projects</h1>
             <a href="/cv">3. experiences + skills</a>
-          </div>
+          </div> */}
         </div>
       </div>
     );
   }
-
-  const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const handleProjectMouseEnter = (project: Project, e: React.MouseEvent) => {
     if (project.about || project.link) {
