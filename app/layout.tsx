@@ -44,7 +44,7 @@ const geist = localFont({
 
 export const metadata: Metadata = {
   title: "charlie nicholson",
-  description: "i don't even know man",
+  description: "",
 };
 
 export default function RootLayout({
