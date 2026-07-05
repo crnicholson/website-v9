@@ -55,7 +55,8 @@ export default function PinterestPage() {
                     <h1 className="font-walter text-2xl text-gray-800 mb-1">
                         LEARN MORE ABOUT ME
                     </h1>
-                    <p className="opacity-60 text-sm">...a chronological collection through my journey in making — unfortunately incomplete due to many images being lost to time</p>
+                    <p className="opacity-60 text-sm mb-6">...a chronological collection through my journey in making — unfortunately incomplete due to many images being lost to time</p>
+                    <Link href="/" className="text-gray-700 underline text-sm block">← Back to Home</Link>
                 </div>
                 <div className="flex flex-row gap-3 flex-wrap text-xs opacity-60">
                     <button

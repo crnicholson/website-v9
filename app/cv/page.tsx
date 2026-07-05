@@ -8,7 +8,7 @@ export default function CV() {
             <div className="sm:w-2/3">
                 <Link href="/" className="text-gray-700 underline mb-8 text-sm block">← Back to Home</Link>
 
-                <p className="text-gray-700 mb-10 text-sm">(Note: If you are interested in seeing a complete resume of my experiences, <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">please contact me</Link>.)</p>
+                <p className="text-gray-700 mb-10 text-sm">(Note: This is incomplete and likely outdated. If you are interested in seeing a complete resume of my experiences, <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">please contact me</Link>.)</p>
 
                 <h1 className="text-2xl mb-5">Experiences</h1>
                 <div className="flex flex-col gap-2 mb-8">
@@ -139,7 +139,7 @@ export default function CV() {
                         <Badge>
                             2024
                         </Badge>
-                        GitHub Universe - personally invited by Kyle Daigle, COO of GitHub, to come.
+                        GitHub Universe - personally invited by Kyle Daigle, COO of GitHub, to come. Talked about in keynote speech.
                     </span>
                     <span className="flex flex-row gap-2 items-center">
                         <Badge>

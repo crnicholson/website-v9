@@ -18,19 +18,22 @@ interface Project {
 const PROJECTS: Project[] = [
   { id: 'menu', type: 'menu' },
   { id: 5, image: '/projects/stratoSoarMK2.png', name: 'STRATOSOAR', about: 'This is my main and largest project, taking place over the course of 3 and a half years. StratoSoar is a low-cost, lightweight UAV designed for deployment from weather balloons. It flies autonomously to GPS coordinates, providing an affordable alternative to conventional UAVs for educators, researchers, and hobbyists.', link: 'https://github.com/crnicholson/StratoSoar-MK3' },
-  { id: 1, image: '/projects/bioplastic.avif', name: 'SEAWEED BIOPLASTIC', about: 'During summer 2023, I created custom bioplastics from seaweed and made a detailed journal of all my experiments.', link: 'https://nicholsonlabs.gitbook.io/labs/bioplastic' },
+  { id: 1, image: '/projects/bioplastic.avif', name: 'SEAWEED BIOPLASTIC', about: 'During Summer 2023, I created custom bioplastics from seaweed and made a detailed journal of all my experiments.', link: 'https://nicholsonlabs.gitbook.io/labs/bioplastic' },
+  { id: 19, image: '/projects/mr-spiky.png', name: 'MR. SPIKY', about: 'Mr. Spiky is an "Intuition Compiler" that utilizes a Spiking Neural Network (SNN) trained on senior-approved Python code to identify structurally unusual and overly complex lines of code. It processes code sequentially, line-by-line, allowing the network to accumulate context and flag lines that a human reviewer would typically object to, such as deep nesting or tangled variable states.', link: 'https://mr-spiky.crnicholson.com' },
   // { id: 6, image: '/projects/hamClub.png', title: '' },
   { id: 4, image: '/projects/carbon.jpeg', name: 'DIY CARBON CAPTURE', about: 'I developed one of the first at-home implementations of carbon capture technology using readily available materials, then made a complete guide to make your own.', link: 'https://nicholsonlabs.gitbook.io/labs/carbon-capture' },
-  { id: 16, image: '/projects/capitol-api.png', name: 'CAPITOL API', about: 'The first ever free, open source, and self-hostable API for accessing trades by Congress members.', link: 'https://github.com/crnicholson/capitol-api' },
+  { id: 16, image: '/projects/capitol-api.png', name: 'CAPITOL API', about: 'The first ever free, open source, and self-hostable API for accessing trades by Congress members.', link: 'https://capitol.crnicholson.com' },
   { id: 9, image: '/projects/hackfinger.gif', name: 'NERVE CONTROLLED FINGER', about: 'I developed a custom circuit for processing nerve signals along with a custom finger to display the signals.' },
-  { id: 12, image: '/projects/woodworks.jpeg', name: 'WOODWORKING BUSINESS', about: 'For three years, I developed my own woodworking business, selling handmade and carved crafts. I profited over $2000 and opened an Etsy store before closing it to focus on other projects.', link: 'https://cochituatewoodworks.wixsite.com/website-2' },
-  // { id: 8, image: '/projects/fonts.png', name: 'FONTS', about: 'Finding display fonts is hard, so I made a collection for mainly my personal use.', link: 'https://fonts.crnicholson.com' },
+
   { id: 3, image: '/projects/beantown.jpeg', name: 'CV RESISTOR DETECTOR', about: 'This won first place at the 2023 Beantown Bash Hackathon. It uses OpenCV to categorize the colors of the bands on a resistor to determine the value of it.', link: 'https://github.com/mpkendall/resistorfinder' },
-  { id: 2, image: '/projects/apex.png', name: 'APEX', about: 'I was a lead organizer for Apex, a 3-month-long hackathon culminating in a launch of 15 student projects into near space on a high-altitude weather balloon. We managed to raise over $15,000 and allowed novel hardware projects to be launched.', link: 'https://apex.hackclub.com' },
+  { id: 13, image: '/projects/softrobotics.png', name: 'SOFT ROBOTICS', about: `I designed a series of novel silicone-based soft robotic grippers to allow for delicate and precise manipulation of objects.` },
+  { id: 2, image: '/projects/apex.png', name: 'APEX', about: 'I was a lead organizer for Apex, a 3-month-long hackathon culminating in a launch of 15 student projects into near space on a high-altitude weather balloon. We managed to raise over $15,000 and cultivated many novel hardware projects.', link: 'https://apex.hackclub.com' },
   { id: 7, image: '/projects/outfits.png', name: 'OUTFIT GENERATOR', about: 'I often find it annoying to create an outfit before school, so I made a tool that lets me view my wardrobe and randomize outfits.', link: 'https://outfits.crnicholson.com' },
+  { id: 15, image: '/projects/bitstream.png', name: 'BITSTREAM', about: 'I created a program that gives free FPGAs and hardware to teens so they can learn advanced digital design and programming skills.', link: 'https://bitstream.hackclub.com' },
   { id: 10, image: '/projects/v3.png', name: 'V3 WEBSITE', about: `I'm passionate that the web is becoming an increasingly mundane and boring world where we have to learn about people through text on a screen. As an auxillary personal website, I developed a website that allows people to experience who I really am.`, link: 'https://v3.crnicholson.com' },
-  { id: 13, image: '/projects/softrobotics.png', name: 'SOFT ROBOTICS', about: `I designed a series of novel silicone-based soft robotic grippers.` },
+  { id: 12, image: '/projects/woodworks.jpeg', name: 'WOODWORKING BUSINESS', about: 'For three years, I developed my own woodworking business, selling handmade and carved crafts. I profited over $2000 and opened an Etsy store before closing it to focus on other projects.', link: 'https://cochituatewoodworks.wixsite.com/website-2' },
   { id: 14, image: '/projects/foldingglider.png', name: 'FOLDING GLIDER', about: `I designed a glider laser cut from one flat peice of cardboard to fold into a flying wing shape with correct airfoil geometry. I also designed a parametric design software that calculated all the parameters for the laser cutter based on the weight and cardboard density.` },
+  { id: 8, image: '/projects/fonts.png', name: 'FONTS', about: 'Finding display fonts is hard, so I made a collection for mainly my personal use.', link: 'https://fonts.crnicholson.com' },
   // { id: 15, image: '/projects/soldering.png', name: 'SOLDERING STATION', about: `I designed an 8-foot long fully-custom soldering and electronics workbench right next to my bed!` },
   // { id: 11, image: '/projects/littleLora.png', title: '' },
 ];
@@ -58,18 +61,18 @@ export default function Home() {
 
         <div className="z-10">
           <Image
-            src="/second-me.png"
+            src="/third-me.png"
             alt="me"
             width={200}
             height={200}
             className="mb-6"
           />
           <p className="mb-6 text-gray-600 text-sm">(Note: to see my projects and more about me, please access this website on a larger screen.)</p>
-          <p className="mb-4">Hi, I'm Charlie. I am 15-year-old who likes to create through many different mediums.</p>
-          <p className="mb-4">Typically I do software, electrical, and mechanical engineering, but I also dabble in different areas of design (web, graphic, fashion), although I'm not very good at it :).</p>
+          <p className="mb-4">Hi, I'm Charlie. I am a 20-year-old from the Boston area.</p>
+          <p className="mb-4">I like to work at the intersection of software and hardware, and especially designing the systems to combine the two. I also dabble in different areas of design (web, graphic, fashion), although I'm not very good at it :).</p>
           <p className="mb-4">If I'm not creating something, you can probably find me listening to <Link className="underline" href="https://open.spotify.com/user/31ybjmvbe7siydivevnk37vditjq?si=a79d39522b4747f3">music</Link>, biking, or enjoying nature.</p>
-          <p className="mb-4">Find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">GitHub</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">LinkedIn</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">Instagram</Link>.</p>
-          <p className="">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this summer. I am looking for internship opportunities this summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
+          <p className="mb-4">Find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">GitHub</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">LinkedIn</Link>, <Link className="underline" href="https://x.com/nnnicholson">Twitter</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">Instagram</Link>.</p>
+          <p className="">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this Summer. I am looking for internship opportunities this Summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
 
           {/* <div className="font-walter uppercase text-3xl flex flex-col gap-3">
             <h1 className="mb-4">table of contents</h1>
@@ -229,15 +232,15 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <p className="mb-4">Hi, I'm Charlie. I am 15-year-old who likes to create through many different mediums.</p>
-            <p className="mb-4">Typically I do software, electrical, and mechanical engineering, but I also dabble in different areas of design (web, graphic, fashion), although I'm not very good at it :).</p>
+            <p className="mb-4">Hi, I'm Charlie. I am a 20-year-old from the Boston area.</p>
+            <p className="mb-4">I like to work at the intersection of software and hardware, and especially designing the systems to combine the two. I also dabble in different areas of design (web, graphic, fashion), although I'm not very good at it :).</p>
             <p className="mb-4">If I'm not creating something, you can probably find me listening to <Link className="underline" href="https://open.spotify.com/user/31ybjmvbe7siydivevnk37vditjq?si=a79d39522b4747f3">music</Link>, biking, or enjoying nature.</p>
-            <p className="mb-4">Find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">GitHub</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">LinkedIn</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">Instagram</Link>.</p>
-            <p className="mb-4">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this summer. I am looking for internship opportunities this summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
+            <p className="mb-4">Find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">GitHub</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">LinkedIn</Link>, <Link className="underline" href="https://x.com/nnnicholson">Twitter</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">Instagram</Link>.</p>
+            <p className="mb-4">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this Summer. I am looking for internship opportunities this Summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
 
             <div className="flex flex-row items-center w-full h-fit gap-10">
               <Image
-                src="/second-me.png"
+                src="/third-me.png"
                 alt="Charlie Nicholson"
                 width={200}
                 height={200}
