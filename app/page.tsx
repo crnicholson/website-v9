@@ -5,11 +5,13 @@ import { useState } from "react"
 import Image from "next/image"
 
 import { useIsMobile } from "@/hooks/useIsMobile"
+import TiledGallery, { GalleryImage } from "@/components/TiledGallery"
 
 interface Project {
   id: number | string;
   type?: 'menu' | 'project';
   image?: string;
+  images?: GalleryImage[];
   name?: string;
   about?: string;
   link?: string;
@@ -17,11 +19,31 @@ interface Project {
 
 const PROJECTS: Project[] = [
   { id: 'menu', type: 'menu' },
-  { id: 5, image: '/projects/stratoSoarMK2.png', name: 'STRATOSOAR', about: 'This is my main and largest project, taking place over the course of 3 and a half years. StratoSoar is a low-cost, lightweight UAV designed for deployment from weather balloons. It flies autonomously to GPS coordinates, providing an affordable alternative to conventional UAVs for educators, researchers, and hobbyists.', link: 'https://github.com/crnicholson/StratoSoar-MK3' },
-  { id: 1, image: '/projects/bioplastic.avif', name: 'SEAWEED BIOPLASTIC', about: 'During Summer 2023, I created custom bioplastics from seaweed and made a detailed journal of all my experiments.', link: 'https://nicholsonlabs.gitbook.io/labs/bioplastic' },
+  {
+    id: 5, image: '/projects/stratosoar/1.png', name: 'STRATOSOAR', about: 'This is my main and largest project, taking place over the course of 3 and a half years. StratoSoar is a low-cost, lightweight UAV designed for deployment from weather balloons. It flies autonomously to GPS coordinates, providing an affordable alternative to conventional UAVs for educators, researchers, and hobbyists.', link: 'https://github.com/crnicholson/StratoSoar-MK3',
+    images: [
+      { src: '/projects/stratosoar/2.png', width: 1051, height: 887 },
+      { src: '/projects/stratosoar/3.png', width: 771, height: 1028 },
+      { src: '/projects/stratosoar/4.png', width: 4032, height: 3024 },
+    ],
+  },
+  {
+    id: 1, image: '/projects/bioplastic/1.avif', name: 'SEAWEED BIOPLASTIC', about: 'During Summer 2023, I created custom bioplastics from seaweed and made a detailed journal of all my experiments.', link: 'https://nicholsonlabs.gitbook.io/labs/bioplastic',
+    images: [
+      { src: '/projects/bioplastic/2.PNG', width: 771, height: 1028 },
+      { src: '/projects/bioplastic/3.PNG', width: 771, height: 1028 },
+      { src: '/projects/bioplastic/4.PNG', width: 771, height: 1028 },
+    ],
+  },
   { id: 19, image: '/projects/mr-spiky.png', name: 'MR. SPIKY', about: 'Mr. Spiky is an "Intuition Compiler" that utilizes a Spiking Neural Network (SNN) trained on senior-approved Python code to identify structurally unusual and overly complex lines of code. It processes code sequentially, line-by-line, allowing the network to accumulate context and flag lines that a human reviewer would typically object to, such as deep nesting or tangled variable states.', link: 'https://mr-spiky.crnicholson.com' },
   // { id: 6, image: '/projects/hamClub.png', title: '' },
-  { id: 4, image: '/projects/carbon.jpeg', name: 'DIY CARBON CAPTURE', about: 'I developed one of the first at-home implementations of carbon capture technology using readily available materials, then made a complete guide to make your own.', link: 'https://nicholsonlabs.gitbook.io/labs/carbon-capture' },
+  {
+    id: 4, image: '/projects/carbon/1.JPEG', name: 'DIY CARBON CAPTURE', about: 'I developed one of the first at-home implementations of carbon capture technology using readily available materials, then made a complete guide to make your own.', link: 'https://nicholsonlabs.gitbook.io/labs/carbon-capture',
+    images: [
+      { src: '/projects/carbon/2.PNG', width: 720, height: 504 },
+      { src: '/projects/carbon/3.jpeg', width: 4032, height: 3024 },
+    ],
+  },
   { id: 16, image: '/projects/capitol-api.png', name: 'CAPITOL API', about: 'The first ever free, open source, and self-hostable API for accessing trades by Congress members.', link: 'https://capitol.crnicholson.com' },
   { id: 9, image: '/projects/hackfinger.gif', name: 'NERVE CONTROLLED FINGER', about: 'I developed a custom circuit for processing nerve signals along with a custom finger to display the signals.' },
 
@@ -193,8 +215,13 @@ export default function Home() {
             top: `${mousePosition.y + 20}px`,
           }}
         >
-          <div className="bg-white border border-black shadow-lg p-4 max-w-sm text-shadow-none">
+          <div className="bg-white border border-black shadow-lg p-4 max-w-md text-shadow-none">
             <h2 className="font-walter text-xs mb-2">{hoveredProject.name}</h2>
+            {hoveredProject.images && hoveredProject.images.length > 0 && (
+              <div className="mb-2">
+                <TiledGallery images={hoveredProject.images} />
+              </div>
+            )}
             {hoveredProject.about && (
               <p className="text-xs leading-relaxed">{hoveredProject.about}</p>
             )}
