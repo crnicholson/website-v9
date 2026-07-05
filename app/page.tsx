@@ -46,7 +46,6 @@ const PROJECTS: Project[] = [
   },
   { id: 16, image: '/projects/capitol-api.png', name: 'CAPITOL API', about: 'The first ever free, open source, and self-hostable API for accessing trades by Congress members.', link: 'https://capitol.crnicholson.com' },
   { id: 9, image: '/projects/hackfinger.gif', name: 'NERVE CONTROLLED FINGER', about: 'I developed a custom circuit for processing nerve signals along with a custom finger to display the signals.' },
-
   { id: 3, image: '/projects/beantown.jpeg', name: 'CV RESISTOR DETECTOR', about: 'This won first place at the 2023 Beantown Bash Hackathon. It uses OpenCV to categorize the colors of the bands on a resistor to determine the value of it.', link: 'https://github.com/mpkendall/resistorfinder' },
   { id: 13, image: '/projects/softrobotics.png', name: 'SOFT ROBOTICS', about: `I designed a series of novel silicone-based soft robotic grippers to allow for delicate and precise manipulation of objects.` },
   { id: 2, image: '/projects/apex.png', name: 'APEX', about: 'I was a lead organizer for Apex, a 3-month-long hackathon culminating in a launch of 15 student projects into near space on a high-altitude weather balloon. We managed to raise over $15,000 and cultivated many novel hardware projects.', link: 'https://apex.hackclub.com' },
@@ -90,11 +89,11 @@ export default function Home() {
             className="mb-6"
           />
           <p className="mb-6 text-gray-600 text-sm">(Note: to see my projects and more about me, please access this website on a larger screen.)</p>
-          <p className="mb-4">Hi, I'm Charlie. I am a 20-year-old from the Boston area.</p>
+          <p className="mb-4">Hi, I'm Charlie. I am a 16-year-old from the Boston area.</p>
           <p className="mb-4">I like to work at the intersection of software and hardware, and especially designing the systems to combine the two. I also dabble in different areas of design (web, graphic, fashion), although I'm not very good at it :).</p>
           <p className="mb-4">If I'm not creating something, you can probably find me listening to <Link className="underline" href="https://open.spotify.com/user/31ybjmvbe7siydivevnk37vditjq?si=a79d39522b4747f3">music</Link>, biking, or enjoying nature.</p>
           <p className="mb-4">Find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">GitHub</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">LinkedIn</Link>, <Link className="underline" href="https://x.com/nnnicholson">Twitter</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">Instagram</Link>.</p>
-          <p className="">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this Summer. I am looking for internship opportunities this Summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
+          <p className="">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> last Summer. I am looking for internship opportunities this Summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
 
           {/* <div className="font-walter uppercase text-3xl flex flex-col gap-3">
             <h1 className="mb-4">table of contents</h1>
@@ -259,11 +258,11 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <p className="mb-4">Hi, I'm Charlie. I am a 20-year-old from the Boston area.</p>
+            <p className="mb-4">Hi, I'm Charlie. I am a 16-year-old from the Boston area.</p>
             <p className="mb-4">I like to work at the intersection of software and hardware, and especially designing the systems to combine the two. I also dabble in different areas of design (web, graphic, fashion), although I'm not very good at it :).</p>
             <p className="mb-4">If I'm not creating something, you can probably find me listening to <Link className="underline" href="https://open.spotify.com/user/31ybjmvbe7siydivevnk37vditjq?si=a79d39522b4747f3">music</Link>, biking, or enjoying nature.</p>
             <p className="mb-4">Find me online here: <Link className="underline" href="mailto:charlienicholsonr@gmail.com">email</Link>, <Link className="underline" href="https://github.com/crnicholson">GitHub</Link>, <Link className="underline" href="https://www.linkedin.com/in/crnicholson/">LinkedIn</Link>, <Link className="underline" href="https://x.com/nnnicholson">Twitter</Link>, and <Link className="underline" href="https://www.instagram.com/charliennnicholson/">Instagram</Link>.</p>
-            <p className="mb-4">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> this Summer. I am looking for internship opportunities this Summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
+            <p className="mb-4">PS: I worked at <Link className="underline" href="https://hackclub.com/">Hack Club</Link> last Summer. I am looking for internship opportunities this Summer, 2026! Please reach out to me if you have any leads. If you are interested, you can also <Link className="underline" href="mailto:charlienicholsonr@gmail.com?subject=I%20would%20like%20a%20resume">request a resume</Link> from me.</p>
 
             <div className="flex flex-row items-center w-full h-fit gap-10">
               <Image
